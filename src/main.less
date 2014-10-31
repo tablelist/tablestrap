@@ -1,3 +1,45 @@
-@import "bower_components/bootstrap/less/bootstrap";
+@import 'bower_components/bootstrap/less/bootstrap.less';
 
+@import 'variables';
+@import 'components';
+@import 'mixins';
 
+/* ---- Globals ---- */
+
+body {
+    .gotham-medium();
+    background: darken(@gray-dark, 7%);
+    letter-spacing: @letter-spacing-base;
+}
+
+ul, ol {
+    list-style: none;
+}
+h1, h2, h3, h4, h5 {
+    margin-top: 0;
+}
+
+/* ---- Main App ---- */
+
+#content {
+    margin-top: @navbar-height + 6;
+    margin-bottom: 100px;
+}
+
+/*
+* Media Queries
+*/
+@media(min-width: @screen-lg) {
+    #header {
+        > .container {
+            width: @container-lg + 60;
+        }
+    }
+}
+@media(max-width: @screen-md) {
+    #content {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
