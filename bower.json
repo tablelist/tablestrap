@@ -1,6 +1,6 @@
 {
   "name": "tablestrap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/tablelist/tablestrap",
   "authors": [
     "Tim Officer <timothyofficer@gmail.com>",
@@ -20,8 +20,5 @@
     "src/bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "bootstrap": "~3.3.0"
-  }
+  ]
 }
