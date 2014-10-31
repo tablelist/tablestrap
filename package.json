@@ -1,0 +1,25 @@
+{
+  "name": "tablestrap",
+  "version": "0.0.0",
+  "description": "HTML and CSS framework based off of Bootstrap",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tablelist/tablestrap.git"
+  },
+  "keywords": [
+    "tablestrap"
+  ],
+  "author": "officert, ehzhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tablelist/tablestrap/issues"
+  },
+  "homepage": "https://github.com/tablelist/tablestrap",
+  "dependencies": {
+    "express": "^4.10.1"
+  }
+}
