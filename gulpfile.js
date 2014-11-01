@@ -29,14 +29,14 @@ gulp.task('clean', function(next) {
 });
 
 gulp.task('css', function() {
-  gulp.src('src/main.less')
+  gulp.src('src/tablestrap.less')
     .pipe(less({
       compress: false
     }))
     .pipe(rename(UNMINIFIED_LESS))
     .pipe(gulp.dest(BUILDDIR))
 
-  return gulp.src('src/main.less')
+  return gulp.src('src/tablestrap.less')
     .pipe(less({
       compress: true
     }))
@@ -52,14 +52,14 @@ gulp.task('server', ['css'], function() {
     emit: 'one',
     emitOnGlob: false
   }, function(files) {
-    gulp.src('src/main.less')
+    gulp.src('src/tablestrap.less')
       .pipe(less({
         compress: false
       }))
       .pipe(rename(UNMINIFIED_LESS))
       .pipe(gulp.dest(BUILDDIR));
 
-    gulp.src('src/main.less')
+    gulp.src('src/tablestrap.less')
       .pipe(less({
         compress: true
       }))

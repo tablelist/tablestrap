@@ -1,0 +1,66 @@
+/* ------------------------------------------------------------------------
+ * Buttons
+ * ------------------------------------------------------------------------ */
+/* ------------------
+ * Base Class
+ -------------------- */
+.btn {
+  &:hover {
+    .transition(background-color 0.3s ease-in);
+  }
+}
+
+/* ------------------
+ -------------------- */
+.btn-square {
+  border-radius: 0;
+}
+.btn-icon-right {
+  > i {
+    margin-left: 10px;
+  }
+  > .icons {
+    .fa {
+      margin-left: 10px;
+    }
+  }
+}
+.btn-icon-left {
+  > i {
+    margin-right: 10px;
+  }
+  > .icons {
+    .fa {
+      margin-right: 10px;
+    }
+  }
+}
+.btn-primary {
+  &.btn-inverse {
+    background: none;
+    color: @gray-dark;
+    border-color: @brand-primary;
+    &:hover {
+      background-color: @brand-primary;
+      color: white;
+    }
+  }
+}
+.btn-borders {
+  border-width: 2px;
+  border-style: solid;
+  border-color: @gray-lighter;
+  border-bottom-width: 4px;
+}
+.btn-facebook {
+  background: #245996;
+  color: white;
+  &:hover {
+    background: #0f417b;
+    color: white;
+  }
+  > div {
+    float: none !important;
+    display: inline-block;
+  }
+}

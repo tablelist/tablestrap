@@ -6311,17 +6311,28 @@ button.close {
     display: none !important;
   }
 }
-/*
-*	App Variables
-*/
+ul,
+ol {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+}
+/* ------------------------------------------------------------------------
+ * Variables
+ * ------------------------------------------------------------------------ */
 /* ------------ Colors ------------ */
 /* ------------ Typography ------------ */
 /* ------------------------------------------------------------------------
- * Bootstrap Component Customization
- * ------------------------------------------------------------------------ /
-
- /* ---- Themes ---- */
-/* ---- Fonts ---- */
+ * Mixins
+ * ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------
+ * Typography
+ * ------------------------------------------------------------------------ */
 .gotham-book {
   font-family: 'Gotham SSm A', 'Gotham SSm B';
   font-weight: 200;
@@ -6364,18 +6375,8 @@ button.close {
 .capitalize {
   text-transform: capitalize;
 }
-.gray-scale {
-  -moz-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-  -o-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-  -webkit-filter: grayscale(100%);
-  filter: gray;
-  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-}
 .superscript {
   vertical-align: super;
-}
-.flip {
-  transform: scale(-1, 1);
 }
 .center {
   text-align: center;
@@ -6383,60 +6384,10 @@ button.close {
 .italic {
   font-style: italic;
 }
-/* ---- Buttons ---- */
-.btn:hover {
-  -webkit-transition: background-color 0.3s ease-in;
-  -o-transition: background-color 0.3s ease-in;
-  transition: background-color 0.3s ease-in;
-}
-.btn-square {
-  border-radius: 0;
-}
-.btn-icon-right > i {
-  margin-left: 10px;
-}
-.btn-icon-right > .icons .fa {
-  margin-left: 10px;
-}
-.btn-icon-left > i {
-  margin-right: 10px;
-}
-.btn-icon-left > .icons .fa {
-  margin-right: 10px;
-}
-.btn-primary.btn-inverse {
-  background: none;
-  color: #333333;
-  border-color: #09aba1;
-}
-.btn-primary.btn-inverse:hover {
-  background-color: #09aba1;
-  color: white;
-}
-.btn-borders {
-  border-width: 2px;
-  border-style: solid;
-  border-color: #e0e0e0;
-  border-bottom-width: 4px;
-}
-.btn-serif {
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-.btn-italics {
-  font-style: italic;
-}
-.btn-facebook {
-  background: #245996;
-  color: white;
-}
-.btn-facebook:hover {
-  background: #0f417b;
-  color: white;
-}
-.btn-facebook > div {
-  float: none !important;
-  display: inline-block;
-}
+/* ------------------------------------------------------------------------
+ * Components
+ * ------------------------------------------------------------------------ */
+/* ---- Themes ---- */
 /* ---- Navbar ---- */
 .navbar-nav > li > a {
   padding: 22px 15px 20px;
@@ -6462,7 +6413,6 @@ button.close {
   height: auto;
   padding: 21px 15px;
 }
-/* ---- Drop Downs ---- */
 /* ---- Blocks ---- */
 .block {
   border-width: 3px;
@@ -6510,6 +6460,82 @@ button.close {
 .block-hover:hover {
   background: #e8e8e8;
 }
+/* ---- Forms ---- */
+.form-group.has-errors > .form-control {
+  background: #f6d6d5;
+  -webkit-transition: background-color 0.3s ease-in;
+  -o-transition: background-color 0.3s ease-in;
+  transition: background-color 0.3s ease-in;
+}
+.form-group.has-errors > .form-control.has-visited {
+  background: #ffe0e0;
+  -webkit-transition: background 0.25s ease-in-out;
+  -o-transition: background 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out;
+}
+.form-group input[type=number] {
+  padding: 0px 12px;
+}
+.form-control {
+  padding: 0 12px;
+  font-size: 20px;
+  height: 50px;
+}
+/* ------------------------------------------------------------------------
+ * Buttons
+ * ------------------------------------------------------------------------ */
+/* ------------------
+ * Base Class
+ -------------------- */
+.btn:hover {
+  -webkit-transition: background-color 0.3s ease-in;
+  -o-transition: background-color 0.3s ease-in;
+  transition: background-color 0.3s ease-in;
+}
+/* ------------------
+ -------------------- */
+.btn-square {
+  border-radius: 0;
+}
+.btn-icon-right > i {
+  margin-left: 10px;
+}
+.btn-icon-right > .icons .fa {
+  margin-left: 10px;
+}
+.btn-icon-left > i {
+  margin-right: 10px;
+}
+.btn-icon-left > .icons .fa {
+  margin-right: 10px;
+}
+.btn-primary.btn-inverse {
+  background: none;
+  color: #333333;
+  border-color: #09aba1;
+}
+.btn-primary.btn-inverse:hover {
+  background-color: #09aba1;
+  color: white;
+}
+.btn-borders {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #e0e0e0;
+  border-bottom-width: 4px;
+}
+.btn-facebook {
+  background: #245996;
+  color: white;
+}
+.btn-facebook:hover {
+  background: #0f417b;
+  color: white;
+}
+.btn-facebook > div {
+  float: none !important;
+  display: inline-block;
+}
 /* ---- Modals ---- */
 .modal-dialog .modal-content {
   border-top-left-radius: 0;
@@ -6538,40 +6564,16 @@ button.close {
 .modal-dialog .modal-content .modal-footer {
   padding: 25px;
 }
-/* ---- Forms ---- */
-.form-group.has-errors > .form-control {
-  background: #f6d6d5;
-  -webkit-transition: background-color 0.3s ease-in;
-  -o-transition: background-color 0.3s ease-in;
-  transition: background-color 0.3s ease-in;
+/* ------------------------------------------------------------------------
+ * Utilities
+ * ------------------------------------------------------------------------ */
+.gray-scale {
+  -moz-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  -o-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  -webkit-filter: grayscale(100%);
+  filter: gray;
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
 }
-.form-group.has-errors > .form-control.has-visited {
-  background: #ffe0e0;
-  -webkit-transition: background 0.25s ease-in-out;
-  -o-transition: background 0.25s ease-in-out;
-  transition: background 0.25s ease-in-out;
+.flip {
+  transform: scale(-1, 1);
 }
-.form-group input[type=number] {
-  padding: 0px 12px;
-}
-.form-control {
-  padding: 0 12px;
-  font-size: 20px;
-  height: 50px;
-}
-/* ---- Globals ---- */
-ul,
-ol {
-  list-style: none;
-}
-h1,
-h2,
-h3,
-h4,
-h5 {
-  margin-top: 0;
-}
-/* ---- Main App ---- */
-/*
-* Media Queries
-*/
