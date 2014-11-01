@@ -4,26 +4,11 @@
 
 /* ------------ Colors ------------ */
 
-@max-site-width: 1079px;
-
-/* - old - */
-@tablelistblue : #57eef3;
-@tablelistgreen : #09aba1;
-
-@softwhite: #fffefc;
-@lightgrey : #333;
-@mediumgrey : #939598;
-@grey: #707070;
-@darkgrey : #3f3f3f;
-@darkergrey : #111;
-@background : #212121;
-@errorred : #de2b22;
-/* - /old - */
-
-@tl-white : #fffefc;
+@tl-white : #ffffff;
 @tl-black : #111111;
 @tl-gray : #191919;
 @tl-green : #09aba1;
+@tl-blue : #57eef3;
 
 @gray-darker:             @tl-gray; // #222
 @gray-dark:               lighten(#000, 20%);   // #333
@@ -32,6 +17,8 @@
 @gray-lighter:            lighten(#000, 88%); // #eee
 
 @gray-bg: 				  #212121;
+@body-bg:				  darken(@gray-dark, 7%);
+@text-color:			  @tl-white;
 
 @brand-primary:        	  @tl-green;
 @brand-success:           #5cb85c;
@@ -40,7 +27,7 @@
 @brand-danger:            #d9534f;
 
 /* ------------ Typography ------------ */
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace; //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-base:        @font-family-sans-serif;
@@ -59,10 +46,10 @@
 @font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
 
 @font-weight-base:		  200;
-@font-weight-xlarge:      600;
-@font-weight-large:		  500;
-@font-weight-med:		  400;
-@font-weight-small:		  200;
+@font-weight-xlarge:      @font-weight-base * 3; //600
+@font-weight-large:		  @font-weight-base * 2.5; //500
+@font-weight-med:		  @font-weight-base * 2; //400
+@font-weight-small:		  @font-weight-base;
 
 @letter-spacing-base: 	  .4px;
 @letter-spacing-large:	  ceil((@letter-spacing-base * 2.2));  // ~1px
