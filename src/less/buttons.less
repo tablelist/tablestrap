@@ -4,30 +4,30 @@
 /* ------------------
  * Base Class
  -------------------- */
+
 .btn {
   &:hover {
     .transition(background-color 0.3s ease-in);
   }
 }
-
 /* ------------------
  -------------------- */
+
 .btn-square {
   border-radius: 0;
 }
 .btn-inverse {
   background: none;
-
   &.btn-inverse-white {
-    color:white;
-    border:1px solid @gray-light;
-
+    color: white;
+    border: 1px solid @gray-light;
     &:hover {
       border-color: @brand-primary;
       background: @brand-primary;
     }
   }
 }
+
 .btn-borders {
   border-width: 2px;
   border-style: solid;

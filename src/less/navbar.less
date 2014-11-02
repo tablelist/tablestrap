@@ -1,0 +1,92 @@
+/* ------------------------------------------------------------------------
+ * Nav bar
+ * ------------------------------------------------------------------------ */
+/* --- Navbar Default --- */
+
+.navbar-default {
+  .navbar-nav {
+    > li {
+      &.active {
+        > a {
+          color: @brand-primary;
+        }
+      }
+      > a {
+        &.btn {
+          &:hover {
+            background: @brand-primary;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+/* --- Navbar Inverse --- */
+
+.navbar-inverse {
+  background: fade(@gray-darker, 98%);
+  .navbar-toggle {
+    background: @tl-white;
+    color: @gray-dark;
+  }
+  .navbar-nav {
+    > li {
+      &.active {
+        > a {
+          color: @brand-primary;
+        }
+      }
+      > a {
+        &:hover {
+          color: @gray-light;
+        }
+        &.btn {
+          &:hover {
+            background: @brand-primary;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+.navbar-nav {
+  > li {
+    > a {
+      padding: 22px 15px 20px;
+      font-weight: @navbar-font-weight;
+      font-size: @navbar-font-size;
+      text-transform: uppercase;
+      position: relative;
+      > i {
+        position: relative;
+      }
+      &:hover {
+        .transition(color 0.3s ease-in);
+      }
+      &.btn {
+        padding: 12px 15px 12px;
+        margin-top: 8px;
+        &:hover {
+          .transition(background-color 0.3s ease-in);
+        }
+      }
+    }
+  }
+}
+.navbar-border {
+  border-bottom: @navbar-border-size solid @navbar-border-color;
+  .navbar-nav {
+    > li {
+      > .dropdown-menu {
+        margin-top: @navbar-border-size;
+      }
+      > a {}
+    }
+  }
+}
+.navbar-brand {
+  height: auto;
+  padding: 21px 15px;
+}

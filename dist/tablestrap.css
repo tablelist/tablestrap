@@ -6386,23 +6386,17 @@ h5 {
   font-style: italic;
 }
 /* ------------------------------------------------------------------------
- * Navs
+ * Nav bar
  * ------------------------------------------------------------------------ */
-.navbar-nav > li > a {
-  padding: 22px 15px 20px;
-  font-weight: 500;
-  font-size: 13px;
-  text-transform: uppercase;
-  position: relative;
-  /* ------- Buttons in a navbar ------- */
+/* --- Navbar Default --- */
+.navbar-default .navbar-nav > li.active > a {
+  color: #09aba1;
 }
-.navbar-nav > li > a > i {
-  position: relative;
+.navbar-default .navbar-nav > li > a.btn:hover {
+  background: #09aba1;
+  color: white;
 }
-.navbar-nav > li > a.btn {
-  padding: 12px 15px 12px;
-  margin-top: 8px;
-}
+/* --- Navbar Inverse --- */
 .navbar-inverse {
   background: rgba(25, 25, 25, 0.98);
 }
@@ -6412,6 +6406,37 @@ h5 {
 }
 .navbar-inverse .navbar-nav > li.active > a {
   color: #09aba1;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #777777;
+}
+.navbar-inverse .navbar-nav > li > a.btn:hover {
+  background: #09aba1;
+  color: white;
+}
+.navbar-nav > li > a {
+  padding: 22px 15px 20px;
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  position: relative;
+}
+.navbar-nav > li > a > i {
+  position: relative;
+}
+.navbar-nav > li > a:hover {
+  -webkit-transition: color 0.3s ease-in;
+  -o-transition: color 0.3s ease-in;
+  transition: color 0.3s ease-in;
+}
+.navbar-nav > li > a.btn {
+  padding: 12px 15px 12px;
+  margin-top: 8px;
+}
+.navbar-nav > li > a.btn:hover {
+  -webkit-transition: background-color 0.3s ease-in;
+  -o-transition: background-color 0.3s ease-in;
+  transition: background-color 0.3s ease-in;
 }
 .navbar-border {
   border-bottom: 4px solid #191919;
@@ -6423,6 +6448,9 @@ h5 {
   height: auto;
   padding: 21px 15px;
 }
+/* ------------------------------------------------------------------------
+ * Navs
+ * ------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------
  * Buttons
  * ------------------------------------------------------------------------ */
