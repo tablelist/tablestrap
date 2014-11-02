@@ -6569,3 +6569,6 @@ h5 {
 .flip {
   transform: scale(-1, 1);
 }
+#content {
+  padding-top: 50px;
+}

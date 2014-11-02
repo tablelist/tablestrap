@@ -34,7 +34,7 @@ gulp.task('css', function() {
       compress: false
     }))
     .pipe(rename(UNMINIFIED_LESS))
-    .pipe(gulp.dest(BUILDDIR))
+    .pipe(gulp.dest(BUILDDIR));
 
   return gulp.src('src/less/tablestrap.less')
     .pipe(less({
@@ -44,10 +44,21 @@ gulp.task('css', function() {
     .pipe(gulp.dest(BUILDDIR));
 });
 
-gulp.task('server', ['css'], function() {
+
+gulp.task('sampleapp-css', function() {
+  return gulp.src('src/app/less/app.less')
+    .pipe(less({
+      compress: false
+    }))
+    .pipe(rename('tablestrapSampleApp.css'))
+    .pipe(gulp.dest('src/app/css'));
+});
+
+gulp.task('server', ['css', 'sampleapp-css'], function() {
 
   console.log('watching less files');
 
+  //tablestrap less files
   watch('src/**/*.less', {
     emit: 'one',
     emitOnGlob: false
@@ -65,6 +76,19 @@ gulp.task('server', ['css'], function() {
       }))
       .pipe(rename(MINIFIED_LESS))
       .pipe(gulp.dest(BUILDDIR));
+  });
+
+  //tablestrap sample app less files
+  watch('src/app/less/app.less', {
+    emit: 'one',
+    emitOnGlob: false
+  }, function(files) {
+    gulp.src('src/app/less/app.less')
+      .pipe(less({
+        compress: false
+      }))
+      .pipe(rename('tablestrapSampleApp.css'))
+      .pipe(gulp.dest('src/app/css'))
   });
 
   return require(__dirname + '/server');

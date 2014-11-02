@@ -1,13 +1,12 @@
 /* ------------------------------------------------------------------------
  * Navs
  * ------------------------------------------------------------------------ */
-
 .navbar-nav {
   > li {
     > a {
       padding: 22px 15px 20px;
       &.active {
-        color: white;
+        //color: white;
       }
     }
   }
@@ -21,11 +20,11 @@
   }
 }
 .navbar-border {
-  border-bottom: 5px solid black;
+  border-bottom: @navbar-border-size solid @navbar-border-color;
   .navbar-nav {
     > li {
       > .dropdown-menu {
-        margin-top: 4px;
+        margin-top: @navbar-border-size;
       }
       > a {}
     }
