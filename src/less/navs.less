@@ -1,0 +1,37 @@
+/* ------------------------------------------------------------------------
+ * Navs
+ * ------------------------------------------------------------------------ */
+
+.navbar-nav {
+  > li {
+    > a {
+      padding: 22px 15px 20px;
+      &.active {
+        color: white;
+      }
+    }
+  }
+}
+.navbar-inverse {
+  background: fade(@gray-darker, 98%);
+  .navbar-toggle {
+    background: @tl-white;
+    color: @gray-dark;
+    opacity: .5;
+  }
+}
+.navbar-border {
+  border-bottom: 5px solid black;
+  .navbar-nav {
+    > li {
+      > .dropdown-menu {
+        margin-top: 4px;
+      }
+      > a {}
+    }
+  }
+}
+.navbar-brand {
+  height: auto;
+  padding: 21px 15px;
+}

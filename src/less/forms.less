@@ -1,0 +1,16 @@
+/* ------------------------------------------------------------------------
+ * Forms
+ * ------------------------------------------------------------------------ */
+
+.form-group {
+  &.has-errors {
+    > .form-control {
+      background: lighten(@brand-danger, 32%);
+      .transition(background-color 0.3s ease-in);
+      &.has-visited {
+        background: lighten(red, 44%);
+        .transition(background .25s ease-in-out);
+      }
+    }
+  }
+}

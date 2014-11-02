@@ -6385,10 +6385,8 @@ h5 {
   font-style: italic;
 }
 /* ------------------------------------------------------------------------
- * Components
+ * Navs
  * ------------------------------------------------------------------------ */
-/* ---- Themes ---- */
-/* ---- Navbar ---- */
 .navbar-nav > li > a {
   padding: 22px 15px 20px;
 }
@@ -6412,74 +6410,6 @@ h5 {
 .navbar-brand {
   height: auto;
   padding: 21px 15px;
-}
-/* ---- Blocks ---- */
-.block {
-  border-width: 3px;
-  border-style: solid;
-  box-shadow: 0 5px 0 0 #f7f6f4;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 0;
-}
-.block:before,
-.block:after {
-  content: " ";
-  display: table;
-}
-.block:after {
-  clear: both;
-}
-.block:before,
-.block:after {
-  content: " ";
-  display: table;
-}
-.block:after {
-  clear: both;
-}
-.block-default {
-  border-color: #ededed;
-}
-.block-inline {
-  display: inline-block;
-}
-.block-sm {
-  padding: 5px;
-}
-.block-lg {
-  padding: 20px;
-}
-.block-cells {
-  padding: 0;
-}
-.block-cells > .cell {
-  padding: 10px;
-  border-left: 1px solid #e0e0e0;
-}
-.block-hover:hover {
-  background: #e8e8e8;
-}
-/* ---- Forms ---- */
-.form-group.has-errors > .form-control {
-  background: #f6d6d5;
-  -webkit-transition: background-color 0.3s ease-in;
-  -o-transition: background-color 0.3s ease-in;
-  transition: background-color 0.3s ease-in;
-}
-.form-group.has-errors > .form-control.has-visited {
-  background: #ffe0e0;
-  -webkit-transition: background 0.25s ease-in-out;
-  -o-transition: background 0.25s ease-in-out;
-  transition: background 0.25s ease-in-out;
-}
-.form-group input[type=number] {
-  padding: 0px 12px;
-}
-.form-control {
-  padding: 0 12px;
-  font-size: 20px;
-  height: 50px;
 }
 /* ------------------------------------------------------------------------
  * Buttons
@@ -6535,6 +6465,70 @@ h5 {
 .btn-facebook > div {
   float: none !important;
   display: inline-block;
+}
+/* ------------------------------------------------------------------------
+ * Blocks - TODO rename to something better, this is too generic
+ * ------------------------------------------------------------------------ */
+.block {
+  border-width: 3px;
+  border-style: solid;
+  box-shadow: 0 5px 0 0 #f7f6f4;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 0;
+}
+.block:before,
+.block:after {
+  content: " ";
+  display: table;
+}
+.block:after {
+  clear: both;
+}
+.block:before,
+.block:after {
+  content: " ";
+  display: table;
+}
+.block:after {
+  clear: both;
+}
+.block-default {
+  border-color: #ededed;
+}
+.block-inline {
+  display: inline-block;
+}
+.block-sm {
+  padding: 5px;
+}
+.block-lg {
+  padding: 20px;
+}
+.block-cells {
+  padding: 0;
+}
+.block-cells > .cell {
+  padding: 10px;
+  border-left: 1px solid #e0e0e0;
+}
+.block-hover:hover {
+  background: #e8e8e8;
+}
+/* ------------------------------------------------------------------------
+ * Forms
+ * ------------------------------------------------------------------------ */
+.form-group.has-errors > .form-control {
+  background: #f6d6d5;
+  -webkit-transition: background-color 0.3s ease-in;
+  -o-transition: background-color 0.3s ease-in;
+  transition: background-color 0.3s ease-in;
+}
+.form-group.has-errors > .form-control.has-visited {
+  background: #ffe0e0;
+  -webkit-transition: background 0.25s ease-in-out;
+  -o-transition: background 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out;
 }
 /* ---- Modals ---- */
 .modal-dialog .modal-content {
