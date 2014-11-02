@@ -6390,6 +6390,18 @@ h5 {
  * ------------------------------------------------------------------------ */
 .navbar-nav > li > a {
   padding: 22px 15px 20px;
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  position: relative;
+  /* ------- Buttons in a navbar ------- */
+}
+.navbar-nav > li > a > i {
+  position: relative;
+}
+.navbar-nav > li > a.btn {
+  padding: 12px 15px 12px;
+  margin-top: 8px;
 }
 .navbar-inverse {
   background: rgba(25, 25, 25, 0.98);
@@ -6397,7 +6409,9 @@ h5 {
 .navbar-inverse .navbar-toggle {
   background: #ffffff;
   color: #333333;
-  opacity: .5;
+}
+.navbar-inverse .navbar-nav > li.active > a {
+  color: #09aba1;
 }
 .navbar-border {
   border-bottom: 4px solid #191919;
@@ -6425,26 +6439,16 @@ h5 {
 .btn-square {
   border-radius: 0;
 }
-.btn-icon-right > i {
-  margin-left: 10px;
-}
-.btn-icon-right > .icons .fa {
-  margin-left: 10px;
-}
-.btn-icon-left > i {
-  margin-right: 10px;
-}
-.btn-icon-left > .icons .fa {
-  margin-right: 10px;
-}
-.btn-primary.btn-inverse {
+.btn-inverse {
   background: none;
-  color: #333333;
-  border-color: #09aba1;
 }
-.btn-primary.btn-inverse:hover {
-  background-color: #09aba1;
+.btn-inverse.btn-inverse-white {
   color: white;
+  border: 1px solid #777777;
+}
+.btn-inverse.btn-inverse-white:hover {
+  border-color: #09aba1;
+  background: #09aba1;
 }
 .btn-borders {
   border-width: 2px;
@@ -6568,4 +6572,10 @@ h5 {
 }
 .flip {
   transform: scale(-1, 1);
+}
+/* -----------------------------------
+ * Globals
+ ------------------------------------- */
+body {
+  font-weight: 200;
 }

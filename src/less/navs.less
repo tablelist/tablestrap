@@ -1,12 +1,22 @@
 /* ------------------------------------------------------------------------
  * Navs
  * ------------------------------------------------------------------------ */
+
 .navbar-nav {
   > li {
     > a {
       padding: 22px 15px 20px;
-      &.active {
-        //color: white;
+      font-weight: @navbar-font-weight;
+      font-size: @navbar-font-size;
+      text-transform: uppercase;
+      position: relative;
+      > i {
+        position: relative;
+      }
+      /* ------- Buttons in a navbar ------- */
+      &.btn {
+        padding:12px 15px 12px;
+        margin-top: 8px;
       }
     }
   }
@@ -16,7 +26,18 @@
   .navbar-toggle {
     background: @tl-white;
     color: @gray-dark;
-    opacity: .5;
+  }
+  .navbar-nav {
+    > li {
+      &.active {
+        > a {
+          color: @brand-primary;
+        }
+      }
+
+      > a {
+      }
+    }
   }
 }
 .navbar-border {
