@@ -6435,11 +6435,8 @@ h5 {
   -o-transition: background-color 0.3s ease-in;
   transition: background-color 0.3s ease-in;
 }
-.navbar-border {
-  border-bottom: 8px solid #111111;
-}
 .navbar-border .navbar-nav > li > .dropdown-menu {
-  margin-top: 8px;
+  margin-top: 0px;
 }
 .navbar-brand {
   height: auto;
