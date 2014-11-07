@@ -6558,6 +6558,10 @@ h5 {
   -o-transition: all background-color 0.3s ease-in ease-out;
   transition: all background-color 0.3s ease-in ease-out;
 }
+.btn > .pull-left,
+.btn > .pull-right {
+  display: inline-block;
+}
 /* ------------------
  -------------------- */
 .btn-square {
@@ -6587,10 +6591,6 @@ h5 {
 .btn-facebook:hover {
   background: #0f417b;
   color: white;
-}
-.btn-facebook > div {
-  float: none !important;
-  display: inline-block;
 }
 /* ------------------------------------------------------------------------
  * Blocks - TODO rename to something better, this is too generic
