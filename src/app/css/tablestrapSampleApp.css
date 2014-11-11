@@ -6599,6 +6599,7 @@ h5 {
 }
 .btn-inverse {
   background: none;
+  border: 1px solid #09aba1;
 }
 .btn-inverse.btn-inverse-white {
   color: white;
