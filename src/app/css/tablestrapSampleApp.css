@@ -6576,14 +6576,17 @@ h5 {
 /* ------------------
  * Base Class
  -------------------- */
-.btn:hover {
-  -webkit-transition: background-color 0.3s ease-in;
-  -o-transition: background-color 0.3s ease-in;
-  transition: background-color 0.3s ease-in;
-  -webkit-transition: all background-color 0.3s ease-in ease-out;
-  -moz-transition: all background-color 0.3s ease-in ease-out;
-  -o-transition: all background-color 0.3s ease-in ease-out;
-  transition: all background-color 0.3s ease-in ease-out;
+.btn {
+  font-weight: 200;
+  padding: 12px 40px;
+  border: none;
+  -webkit-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out ease-out;
+  -moz-transition: all 0.3s ease-in-out ease-out;
+  -o-transition: all 0.3s ease-in-out ease-out;
+  transition: all 0.3s ease-in-out ease-out;
 }
 .btn > .pull-left,
 .btn > .pull-right {
