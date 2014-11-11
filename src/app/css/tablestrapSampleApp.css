@@ -6479,6 +6479,20 @@ h5 {
  * Nav bar
  * ------------------------------------------------------------------------ */
 /* --- Navbar Default --- */
+.navbar-default .navbar-toggle {
+  background: none;
+  color: #333333;
+  border: none;
+}
+.navbar-default .navbar-toggle:hover {
+  background: none;
+  color: #09aba1;
+}
+.navbar-default .navbar-toggle:active,
+.navbar-default .navbar-toggle:focus {
+  background: none;
+  color: #09aba1;
+}
 .navbar-default .navbar-nav > li.active > a {
   color: #09aba1;
 }
@@ -6488,8 +6502,18 @@ h5 {
 }
 /* --- Navbar Inverse --- */
 .navbar-inverse .navbar-toggle {
-  background: #ffffff;
-  color: #333333;
+  background: none;
+  color: white;
+  border: none;
+}
+.navbar-inverse .navbar-toggle:hover {
+  background: none;
+  color: #09aba1;
+}
+.navbar-inverse .navbar-toggle:active,
+.navbar-inverse .navbar-toggle:focus {
+  background: none;
+  color: #09aba1;
 }
 .navbar-inverse .navbar-nav > li.active > a {
   color: #09aba1;
@@ -6539,6 +6563,9 @@ h5 {
 .navbar-brand {
   height: auto;
   padding: 21px 15px;
+}
+.navbar-toggle {
+  padding: 12px 0px 9px;
 }
 /* ------------------------------------------------------------------------
  * Navs
@@ -6807,10 +6834,6 @@ h5 {
 .modal-dialog .modal-content .modal-header h4 {
   letter-spacing: 1px;
   font-size: 32px;
-}
-.modal-dialog .modal-content .modal-header button {
-  top: 10px;
-  position: relative;
 }
 .modal-dialog .modal-content .modal-body {
   padding: 25px;

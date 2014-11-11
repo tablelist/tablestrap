@@ -4,6 +4,19 @@
 /* --- Navbar Default --- */
 
 .navbar-default {
+  .navbar-toggle {
+    background: none;
+    color: @gray-dark;
+    border: none;
+    &:hover {
+      background: none;
+      color: @brand-primary;
+    }
+    &:active, &:focus {
+      background: none;
+      color: @brand-primary;
+    }
+  }
   .navbar-nav {
     > li {
       &.active {
@@ -26,9 +39,18 @@
 
 .navbar-inverse {
   .navbar-toggle {
-    background: @tl-white;
-    color: @gray-dark;
- }
+    background: none;
+    color: white;
+    border: none;
+    &:hover {
+      background: none;
+      color: @brand-primary;
+    }
+    &:active, &:focus {
+      background: none;
+      color: @brand-primary;
+    }
+  }
   .navbar-nav {
     > li {
       &.active {
@@ -75,7 +97,6 @@
   }
 }
 .navbar-border {
-//  border-bottom: @navbar-border-size solid @navbar-border-color;
   .navbar-nav {
     > li {
       > .dropdown-menu {
@@ -88,4 +109,7 @@
 .navbar-brand {
   height: auto;
   padding: 21px 15px;
+}
+.navbar-toggle {
+  padding:12px 0px 9px;
 }
