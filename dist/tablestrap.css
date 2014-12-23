@@ -6585,6 +6585,9 @@ h5 {
 .btn > .pull-right {
   display: inline-block;
 }
+.btn .fa {
+  margin-right: 4px;
+}
 /* ------------------
  * Button Sizes
  -------------------- */
@@ -6912,6 +6915,12 @@ h5 {
     padding-right: 15px;
     padding-left: 15px;
   }
+}
+.label {
+  display: inline-block;
+  padding: .8em 1.5em .8em;
+  font-size: .8em;
+  font-weight: 400;
 }
 /* ---- Modals ---- */
 .modal-dialog .modal-content {
