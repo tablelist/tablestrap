@@ -59,6 +59,24 @@
     -webkit-filter: blur(@value);
 }
 
+.table-button(@color, @background, @border){
+    box-shadow: lighten(@background, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+    color: @color;
+    border: 1px solid @border;
+    &:hover {
+        border: 1px solid @border;
+        background: darken(@background, 4%);
+    }
+    &:active {
+        border: 1px solid @border;
+        background: @background;
+    }
+    &:focus {
+        border: 1px solid @border;
+        background: @background;
+    }
+}
+
 // .placeholder(@color: rgba(0,0,0.15)){
 
 //     ::-webkit-input-placeholder {

@@ -33,51 +33,76 @@
   padding: 22px 32px;
   font-size: @font-size-xlarge;
 }
+
+.btn-bold {
+  font-weight: @font-weight-med;
+  text-transform: uppercase;
+}
+
 /* ------------------
  * Button Types (must be used with the .btn base class)
  -------------------- */
+
+.btn-default {
+  .table-button(@tl-black, white, darken(white, 30%));
+}
+
+.btn-dark {
+  .button-variant(white; @brand-dark; @brand-dark); // Bootstrap Mixin
+  #gradient > .vertical(
+  @start-color: @brand-dark;
+  @end-color: darken(@brand-dark, 5%);
+  @start-percent: 0%;
+  @end-percent: 100%;);
+  .table-button(white, @brand-dark, darken(@brand-dark, 15%));
+  &:hover {
+    #gradient > .vertical(@start-color: darken(@brand-dark, 3%);
+    @end-color: darken(@brand-dark, 5%);
+    @start-percent: 0%;
+    @end-percent: 100%);
+  }
+}
 
 .btn-primary {
   #gradient > .vertical(@start-color: @brand-primary;
   @end-color: darken(@brand-primary, 8%);
   @start-percent: 0%;
   @end-percent: 100%);
-  box-shadow: lighten(@brand-primary, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.49) 0px 3px 3px 0px;
+  .table-button(white, @brand-primary, darken(@brand-primary, 15%));
   &:hover {
     #gradient > .vertical(@start-color: darken(@brand-primary, 4%);
     @end-color: darken(@brand-primary, 8%);
     @start-percent: 0%;
     @end-percent: 100%);
-    color: white;
   }
 }
 .btn-info {
+  .table-button(white, darken(@brand-info, 10%), darken(@brand-info, 25%));
   #gradient > .vertical(@start-color: @brand-info;
   @end-color: darken(@brand-info, 25%);
   @start-percent: 0%;
   @end-percent: 100%);
-  box-shadow: lighten(@brand-info, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.49) 0px 3px 3px 0px;
 }
 .btn-warning {
+  .table-button(white, @brand-warning, darken(@brand-warning, 25%));
   #gradient > .vertical(@start-color: @brand-warning;
-  @end-color: darken(@brand-warning, 25%);
+  @end-color: darken(@brand-warning, 15%);
   @start-percent: 0%;
   @end-percent: 100%);
-  box-shadow: lighten(@brand-warning, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.49) 0px 3px 3px 0px;
 }
 .btn-danger {
+  .table-button(white, @brand-danger, darken(@brand-danger, 25%));
   #gradient > .vertical(@start-color: @brand-danger;
-  @end-color: darken(@brand-danger, 25%);
+  @end-color: darken(@brand-danger, 15%);
   @start-percent: 0%;
   @end-percent: 100%);
-  box-shadow: lighten(@brand-danger, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.49) 0px 3px 3px 0px;
 }
 .btn-success {
+  .table-button(white, @brand-success, darken(@brand-success, 25%));
   #gradient > .vertical(@start-color: @brand-success;
-  @end-color: darken(@brand-success, 18%);
+  @end-color: darken(@brand-success, 15%);
   @start-percent: 0%;
   @end-percent: 100%);
-  box-shadow: lighten(@brand-success, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.49) 0px 3px 3px 0px;
 }
 .btn-inverse {
   background: none;
@@ -111,7 +136,7 @@
   @start-percent: 0%;
   @end-percent: 100%);
   color: white;
-  box-shadow: lighten(@facebook, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.49) 0px 3px 3px 0px;
+  box-shadow: lighten(@facebook, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.2) 0px 1px 1px 1px;
   &:hover {
     #gradient > .vertical(@start-color: darken(@facebook, 7%);
     @end-color: darken(@facebook, 12%);
@@ -126,7 +151,7 @@
   @start-percent: 0%;
   @end-percent: 100%);
   color: white;
-  box-shadow: lighten(@twitter, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.49) 0px 3px 3px 0px;
+  box-shadow: lighten(@twitter, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.2) 0px 1px 1px 1px;
   &:hover {
     #gradient > .vertical(@start-color: darken(@twitter, 20%);
     @end-color: darken(@twitter, 28%);
