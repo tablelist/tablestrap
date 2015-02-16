@@ -86,6 +86,11 @@ angular.module('tablestrapApp').config([
         url: '/jumbotron',
         templateUrl: '/app/views/jumbotron.html',
         controller: 'componentCtrl'
+      })
+      .state('dropdowns', {
+        url: '/dropdowns',
+        templateUrl: '/app/views/dropdowns.html',
+        controller: 'componentCtrl'
       });
   }
 ]);

@@ -1,105 +1,94 @@
 /* ------------------------------------------------------------------------
  * Mixins
  * ------------------------------------------------------------------------ */
-
 /*---------------------------------------------------
     A set of useful LESS mixins
     More info at: http://lesselements.com
   ---------------------------------------------------*/
 
 .opacity(@opacity: 0.5) {
-    -moz-opacity: @opacity;
-    -khtml-opacity: @opacity;
-    -webkit-opacity: @opacity;
-    opacity: @opacity;
-    @opperc: @opacity * 100;
-    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
-    filter: ~"alpha(opacity=@{opperc})";
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  -webkit-opacity: @opacity;
+  opacity: @opacity;
+  @opperc: @opacity * 100;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+  filter: ~"alpha(opacity=@{opperc})";
 }
 .box-sizing(@sizing: border-box) {
-    -ms-box-sizing: @sizing;
-    -moz-box-sizing: @sizing;
-    -webkit-box-sizing: @sizing;
-    box-sizing: @sizing;
+  -ms-box-sizing: @sizing;
+  -moz-box-sizing: @sizing;
+  -webkit-box-sizing: @sizing;
+  box-sizing: @sizing;
 }
 .border-radius (@radius: 5px) {
-    -webkit-border-radius: @radius;
-    -moz-border-radius:    @radius;
-    border-radius:         @radius;
-
-    -moz-background-clip:    padding;
-    -webkit-background-clip: padding-box;
-    background-clip:         padding-box;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
-.transition(@duration:0.2s, @ease:ease-out) {
-    -webkit-transition: all @duration @ease;
-    -moz-transition: all @duration @ease;
-    -o-transition: all @duration @ease;
-    transition: all @duration @ease;
+.transition(@duration: 0.2s, @ease: ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
 }
-.transition-prop(@property, @duration:0.2s, @ease:ease-out) {
-    -webkit-transition: @property @duration @ease;
-    -moz-transition: @property @duration @ease;
-    -o-transition: @property @duration @ease;
-    transition: @property @duration @ease;
+.transition-prop(@property, @duration: 0.2s, @ease: ease-out) {
+  -webkit-transition: @property @duration @ease;
+  -moz-transition: @property @duration @ease;
+  -o-transition: @property @duration @ease;
+  transition: @property @duration @ease;
 }
 .drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
-    -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-    -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-    box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
 }
 .box-shadow(@arguments) {
-    -webkit-box-shadow: @arguments;
-    -moz-box-shadow: @arguments;
-    box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
 }
-
-.blur(@value){
-    filter: blur(@value);
-    -webkit-filter: blur(@value);
+.blur(@value) {
+  filter: blur(@value);
+  -webkit-filter: blur(@value);
 }
-
-.table-button(@color, @background, @border){
-    box-shadow: lighten(@background, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
-    color: @color;
+.table-button(@color, @background, @border) {
+  //box-shadow: lighten(@background, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  color: @color;
+  border: 1px solid @border;
+  &:hover {
     border: 1px solid @border;
-    &:hover {
-        border: 1px solid @border;
-        background: darken(@background, 4%);
-    }
-    &:active {
-        border: 1px solid @border;
-        background: @background;
-    }
-    &:focus {
-        border: 1px solid @border;
-        background: @background;
-    }
+    background: darken(@background, 4%);
+  }
+  &:active {
+    border: 1px solid @border;
+    background: @background;
+  }
+  &:focus {
+    border: 1px solid @border;
+    background: @background;
+  }
 }
-
 .vertical-align {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
-
-
 // .placeholder(@color: rgba(0,0,0.15)){
-
 //     ::-webkit-input-placeholder {
 //             color: @color;
 //     }
-
 //     :-moz-placeholder { /* Firefox 18- */
 //         color: @color;
 //     }
-
 //     ::-moz-placeholder {  /* Firefox 19+ */
 //         color: @color;
 //     }
-
 //     :-ms-input-placeholder {
 //         color: @color;
 //     }
