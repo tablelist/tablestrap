@@ -8,7 +8,7 @@ angular.module('tablestrap').directive('schedulePicker', function() {
       '<label><input type="checkbox" ng-checked="!scheduleDay.closed" ng-click="scheduleDay.select()"><span class="scheduleDay-name">{{ getDayFromNumber(scheduleDay.day) }}</span></label>' +
       '<div class="time-picker-range" ng-repeat="hoursRange in scheduleDay.hours">' +
       '<div class="time-picker start-time" ng-class="{ error: hoursRange.invalidStartTime }">' +
-      '<select class="time-select" ng-model="hoursRange.start">' +
+      '<select class="time-select" ng-model="hoursRange.startTime">' +
       '<option ng-repeat="time in times" value="{{time}}">{{time}}</option>' +
       '</select>' +
       '<div class="meridian">' +
@@ -19,7 +19,7 @@ angular.module('tablestrap').directive('schedulePicker', function() {
       '</div>' +
       '<div class="splitter">-</div>' +
       '<div class="time-picker end-time" ng-class="{ error: hoursRange.invalidEndTime }">' +
-      '<select class="time-select" ng-model="hoursRange.end">' +
+      '<select class="time-select" ng-model="hoursRange.endTime">' +
       '<option ng-repeat="time in times" value="{{time}}">{{time}}</option>' +
       '</select>' +
       '<div class="meridian">' +
@@ -50,17 +50,10 @@ angular.module('tablestrap').directive('schedulePicker', function() {
       function ScheduleDay(day) {
         this.day = day;
         this.closed = true;
-        this.modified = false;
-
-        //validation
-        this.invalidRange = false;
-        this.invalidStartTime = false;
-        this.invalidEndTime = false;
-
         this.hours = [{
-          start: null,
+          startTime: null,
           startMeridian: $scope.periods[0],
-          end: null,
+          endTime: null,
           endMeridian: $scope.periods[1]
         }];
       }
@@ -69,9 +62,9 @@ angular.module('tablestrap').directive('schedulePicker', function() {
         _this.closed = false;
 
         _this.hours.push({
-          start: null,
+          startTime: null,
           startMeridian: $scope.periods[0],
-          end: null,
+          endTime: null,
           endMeridian: $scope.periods[1],
         });
       };
@@ -111,12 +104,12 @@ angular.module('tablestrap').directive('schedulePicker', function() {
               hourGroup.invalidEndTime = false;
               hourGroup.invalidRange = false;
 
-              if (hourGroup.start) hourGroup.start = null;
-              if (hourGroup.end) hourGroup.end = null;
+              if (hourGroup.startTime) hourGroup.startTime = null;
+              if (hourGroup.endTime) hourGroup.endTime = null;
             } else {
-              if (!hourGroup.start) hourGroup.invalidStartTime = true;
+              if (!hourGroup.startTime) hourGroup.invalidStartTime = true;
               else hourGroup.invalidStartTime = false;
-              if (!hourGroup.end) hourGroup.invalidEndTime = true;
+              if (!hourGroup.endTime) hourGroup.invalidEndTime = true;
               else hourGroup.invalidEndTime = false;
 
               if (hourGroup.invalidStartTime && hourGroup.invalidEndTime) {
@@ -168,22 +161,21 @@ angular.module('tablestrap').directive('schedulePicker', function() {
         }
       };
 
-      $attrs.$observe('required', function() {
-        return validate(ctrl.$viewValue);
-      });
+      // $attrs.$observe('required', function() {
+      //   return validate(ctrl.$viewValue);
+      // });
+
+      //deep watch the collection of schedule days to update the model - this will trigger the validate function to run
+      $scope.$watch('scheduleDays', function(val) {
+        ctrl.$setViewValue(val);
+      }, true);
 
       ctrl.$parsers.unshift(validate);
       ctrl.$formatters.push(validate);
 
-      $scope.$watch('scheduleDays', function(val) {
-        ctrl.$setViewValue(val);
-      }, true); //deep watch the collection of schedule days to update the model
-
       //private helpers
       function validate(viewValue) {
         var requiredAttr = $attrs.required;
-
-        validateScheduleValues();
 
         if (requiredAttr && !viewValue) {
           ctrl.$setValidity('required', false);
@@ -191,13 +183,15 @@ angular.module('tablestrap').directive('schedulePicker', function() {
           ctrl.$setValidity('required', true);
         }
 
-        // ctrl.$setValidity('required', false);
-        // ctrl.$setValidity('invalidRange', false);
+        validateAndScrubScheduleValues();
 
         return viewValue;
       }
 
-      function validateScheduleValues() {
+      function validateAndScrubScheduleValues() {
+        //validate the schedule values and pull out any values that should be set on the model
+        var newSchedule = [];
+
         var i;
         var j;
         var invalidRange;
@@ -222,12 +216,15 @@ angular.module('tablestrap').directive('schedulePicker', function() {
             for (j = 0; j < schedule.hours.length; j++) {
               var hours = schedule.hours[j];
 
-              if (!schedule.closed && (!hours.start || !hours.end)) {
+              if (!schedule.closed && (!hours.startTime || !hours.endTime)) {
                 invalidRange = true;
                 invalidStartTime = true;
                 invalidEndTime = true;
                 break;
               }
+              hours.start = hours.startTime + ' ' + hours.startMeridian.name;
+              hours.end = hours.endTime + ' ' + hours.endMeridian.name;
+
               // if (!REGEXES.time.test(hours.start) || !REGEXES.time.test(hours.end)) {
               //   // hours.invalidStartTime = true;
               //   // hours.invalidEndTime = true;
@@ -243,6 +240,8 @@ angular.module('tablestrap').directive('schedulePicker', function() {
               // if (hours.end < hours.start) { //if the end time is before the start assume it's actually the following day
               //   hours.end.add(1, 'day');
               // }
+
+              //cleanup angular keys and extra stuff that shouldn't be visible outside this directive
             }
 
             //schedule.hours = _.sortBy(schedule.hours, 'start'); //order the hour groups (so 9:00AM-10:00AM comes before 11:00AM-1:00PM)
@@ -322,6 +321,16 @@ angular.module('tablestrap').directive('schedulePicker', function() {
         } else {
           ctrl.$setValidity('invalidEndTime', true);
         }
+      }
+
+      function clone(obj) {
+        var cloneObj = {};
+
+        for (var key in obj) {
+          cloneObj[key] = obj[key];
+        }
+
+        return cloneObj;
       }
     }
   };
