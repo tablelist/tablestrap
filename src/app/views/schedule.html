@@ -8,6 +8,9 @@
   </div>
 
   <div id="schedule" class="row">
+    <div class="alert alert-warning" ng-show="formStatus === 'Invalid'">
+      Form Status is {{ formStatus }}
+    </div>
     <button class="btn btn-default" ng-click="logValues()">Log</button>
     <div class="col-md-6">
       <form name="schedulePickerForm" novalidate>
@@ -18,6 +21,7 @@
           Schedule contains an invalid date range
         </div>
         <schedule-picker ng-model="form.schedule" name="schedule" required></schedule-picker>
+        <button type="submit" ng-click="submit(schedulePickerForm)">Submit</button>
       </form>
     </div>
   </div>

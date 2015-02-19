@@ -2,6 +2,9 @@ angular.module('tablestrap').directive('schedulePicker', function() {
   return {
     restrict: 'E',
     require: 'ngModel',
+    scope: {
+      ngModel: '='
+    },
     template: '' +
       '<div class="schedule-picker clearfix">' +
       '<div class="schedule-day clearfix" ng-repeat="scheduleDay in scheduleDays">' +
@@ -167,11 +170,15 @@ angular.module('tablestrap').directive('schedulePicker', function() {
 
       //deep watch the collection of schedule days to update the model - this will trigger the validate function to run
       $scope.$watch('scheduleDays', function(val) {
+      	validate(val);
+      	
         ctrl.$setViewValue(val);
       }, true);
 
       ctrl.$parsers.unshift(validate);
       ctrl.$formatters.push(validate);
+
+      //ctrl.$setViewValue($scope.scheduleDays);
 
       //private helpers
       function validate(viewValue) {
