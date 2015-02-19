@@ -7248,7 +7248,7 @@ fieldset[disabled] .btn-dark.active {
 .schedule-picker .schedule-day .time-picker-range .time-picker {
   font-size: 14px;
   height: 44px;
-  width: 180px;
+  width: 140px;
   display: inline-block;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
@@ -7261,7 +7261,7 @@ fieldset[disabled] .btn-dark.active {
   margin: 0;
   height: 42px;
   float: left;
-  width: 65%;
+  width: 55%;
   padding-left: 20px;
   background: transparent;
   border: 1px solid transparent;
@@ -7271,7 +7271,7 @@ fieldset[disabled] .btn-dark.active {
   cursor: pointer;
 }
 .schedule-picker .schedule-day .time-picker-range .time-picker .meridian {
-  width: 35%;
+  width: 45%;
   height: 42px;
   float: right;
   position: relative;
