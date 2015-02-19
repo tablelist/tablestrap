@@ -30,7 +30,7 @@ angular.module('tablestrap').directive('schedulePicker', function() {
       '</div>' +
       '<a class="time-picker-remove" href="#" ng-click="scheduleDay.removeHours($index)"><i class="fa fa-times"></i></a>' +
       '</div>' +
-      '<a class="time-picker-add" href="#" ng-click="scheduleDay.addHours()"><i class="fa fa-plus"></i></a>' +
+      '<a class="time-picker-add" href="#" ng-click="scheduleDay.addHours()" ng-hide="scheduleDay.closed"><i class="fa fa-plus"></i></a>' +
       '<div class="time-picker-disabled" ng-show="scheduleDay.closed" ng-click="scheduleDay.select()"></div>' +
       '</div>' +
       '</div>',
@@ -210,7 +210,7 @@ angular.module('tablestrap').directive('schedulePicker', function() {
           schedule.validate();
 
           if (schedule.closed) {
-            break;
+            continue;
           }
 
           if (!schedule.closed && (!schedule.hours || !schedule.hours.length)) {
@@ -220,7 +220,7 @@ angular.module('tablestrap').directive('schedulePicker', function() {
 
           if (schedule.hours && schedule.hours.length) {
             for (j = 0; j < schedule.hours.length; j++) {
-              var hours = schedule.hours[i];
+              var hours = schedule.hours[j];
 
               if (!schedule.closed && (!hours.start || !hours.end)) {
                 invalidRange = true;
