@@ -7224,18 +7224,19 @@ fieldset[disabled] .btn-dark.active {
   border: 1px solid #e0e0e0;
   color: #e0e0e0;
 }
-.schedule-picker .schedule-day .time-picker-disabled {
+.schedule-picker .schedule-day .time-picker-range {
+  float: right;
+  position: relative;
+}
+.schedule-picker .schedule-day .time-picker-range .time-picker-disabled {
   background: white;
   opacity: .8;
   position: absolute;
   top: 0;
   right: 0;
-  width: 80%;
+  width: 100%;
   height: 100%;
   cursor: pointer;
-}
-.schedule-picker .schedule-day .time-picker-range {
-  float: right;
 }
 .schedule-picker .schedule-day .time-picker-range .splitter {
   padding: 0 12px;

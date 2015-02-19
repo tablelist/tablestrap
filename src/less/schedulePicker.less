@@ -34,18 +34,19 @@
       border: 1px solid @gray-lighter;
       color: @gray-lighter;
     }
-    .time-picker-disabled {
-      background: white;
-      opacity: .8;
-      position: absolute;
-      top: 0;
-      right: 0; 
-      width: 80%;
-      height: 100%;
-      cursor: pointer;
-    }
     .time-picker-range {
       float: right;
+      position: relative;
+      .time-picker-disabled {
+        background: white;
+        opacity: .8;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
       .splitter {
         padding: 0 12px;
         display: inline-block;
