@@ -1,0 +1,79 @@
+/* ------------------------------------------------------------------------
+ * Variables
+ * ------------------------------------------------------------------------ */
+
+/* ------------ Colors ------------ */
+
+@tl-white : #ffffff;
+@tl-black : #111111;
+@tl-gray : #181818;
+@tl-green : #28c0b3;
+@tl-blue : #57eef3;
+@facebook: #245996;
+@twitter : #5EA9DD;
+
+@gray-darker:             @tl-gray; // #222
+@gray-dark:               lighten(#000, 20%);   // #333
+@gray:                    lighten(#000, 33.5%); // #555
+@gray-light:              lighten(#000, 46.7%); // #777
+@gray-lighter:            lighten(#000, 88%); // #eee
+
+@gray-bg: 				  #212121;
+@body-bg:				  white;
+@text-color:			  @gray-dark;
+
+@brand-primary:        	  @tl-green;
+@brand-dark: #444444;
+@brand-success:           #5cb85c;
+@brand-info:              #5bc0de;
+@brand-warning:           #f0ad4e;
+@brand-danger:            #e6100e;
+
+/* ------------ Typography ------------ */
+@body-font-weight: @font-weight-base;
+
+@font-family-sans-serif:  'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace; //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+@font-family-condensed:   'Gotham Cond SSm A', 'Gotham Cond SSm B', Helvetica, Arial, sans-serif;
+@font-family-base:        @font-family-sans-serif;
+
+@font-size-base:          16px;
+@font-size-xlarge:        ceil((@font-size-base * 1.57)); // ~22px
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-med:           ceil((@font-size-base * 1.14)); // ~16px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+
+@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
+
+@font-weight-base:		  400;
+@font-weight-xlarge:      @font-weight-base * 3; //600
+@font-weight-large:		  @font-weight-base * 2.5; //500
+@font-weight-med:		  @font-weight-base * 2; //400
+@font-weight-small:		  @font-weight-base;
+
+@letter-spacing-base: 	  .4px;
+@letter-spacing-large:	  ceil((@letter-spacing-base * 2.2));  // ~1px
+@letter-spacing-med:	  ceil((@letter-spacing-base * 5));  // ~2px
+@letter-spacing-small:	  ceil((@letter-spacing-base * 2.2));  // ~1px
+
+@border-radius-base: 2px;
+
+/* ------------ Navbar ------------ */
+@navbar-border-size: 0px;
+@navbar-border-color: @tl-black;
+@navbar-font-weight: @font-weight-large;
+@navbar-font-size: (@font-size-small - 2);
+
+//inverse
+@navbar-inverse-link-color: #fff;
+@navbar-inverse-bg: @gray-darker;
+
+/* ----------- Progress Bars -------- */
+@progress-bar-color: @brand-primary;
+@progress-border-radius: 50px;

@@ -1,0 +1,184 @@
+/* ------------------------------------------------------------------------
+ * Buttons
+ * ------------------------------------------------------------------------ */
+/* ------------------
+ * Base Class
+ -------------------- */
+
+.btn {
+  padding: 13px 26px;
+  border: none;
+  > .pull-left, > .pull-right {
+    display: inline-block;
+  }
+  .fa {
+    margin-right: 4px;
+  }
+}
+/* ------------------
+ * Button Sizes
+ -------------------- */
+
+.btn-xs {
+  padding: 5px 10px;
+}
+.btn-sm {
+  padding: 10px 15px
+}
+.btn-xlg {
+  padding: 16px 32px;
+}
+.btn-xxlg {
+  padding: 22px 32px;
+  font-size: @font-size-xlarge;
+}
+.btn-bold {
+  font-weight: @font-weight-med;
+  text-transform: uppercase;
+}
+/* ------------------
+ * Button Types (must be used with the .btn base class)
+ -------------------- */
+
+.btn-default {
+  .table-button(@tl-black, white, darken(white, 30%));
+  &.btn-default-green {
+  .table-button(@brand-primary, white, @brand-primary);
+  &.disabled {
+    color:darken(@brand-primary, 5%);
+  }
+  }
+}
+.btn-dark {
+  .button-variant(white;
+  @brand-dark;
+  @brand-dark); // Bootstrap Mixin
+  // #gradient > .vertical( @start-color: @brand-dark;
+  // @end-color: darken(@brand-dark, 5%);
+  // @start-percent: 0%;
+  // @end-percent: 100%;
+  // );
+  .table-button(white, @brand-dark, darken(@brand-dark, 15%));
+  &:hover {
+    // #gradient > .vertical(@start-color: darken(@brand-dark, 3%);
+    // @end-color: darken(@brand-dark, 5%);
+    // @start-percent: 0%;
+    // @end-percent: 100%);
+  }
+}
+.btn-primary {
+  // #gradient > .vertical(@start-color: @brand-primary;
+  // @end-color: darken(@brand-primary, 8%);
+  // @start-percent: 0%;
+  // @end-percent: 100%);
+  .table-button(white, @brand-primary, darken(@brand-primary, 15%));
+  &:hover {
+    // #gradient > .vertical(@start-color: darken(@brand-primary, 4%);
+    // @end-color: darken(@brand-primary, 8%);
+    // @start-percent: 0%;
+    // @end-percent: 100%);
+  }
+}
+.btn-info {
+  .table-button(white, darken(@brand-info, 10%), darken(@brand-info, 25%));
+  // #gradient > .vertical(@start-color: @brand-info;
+  // @end-color: darken(@brand-info, 25%);
+  // @start-percent: 0%;
+  // @end-percent: 100%);
+}
+.btn-warning {
+  .table-button(white, @brand-warning, darken(@brand-warning, 25%));
+  // #gradient > .vertical(@start-color: @brand-warning;
+  // @end-color: darken(@brand-warning, 15%);
+  // @start-percent: 0%;
+  // @end-percent: 100%);
+}
+.btn-danger {
+  .table-button(white, @brand-danger, darken(@brand-danger, 25%));
+  // #gradient > .vertical(@start-color: @brand-danger;
+  // @end-color: darken(@brand-danger, 15%);
+  // @start-percent: 0%;
+  // @end-percent: 100%);
+}
+.btn-success {
+  .table-button(white, @brand-success, darken(@brand-success, 25%));
+  // #gradient > .vertical(@start-color: @brand-success;
+  // @end-color: darken(@brand-success, 15%);
+  // @start-percent: 0%;
+  // @end-percent: 100%);
+}
+.btn-inverse {
+  background: none;
+  border: 1px solid @brand-primary;
+  &:hover {
+    background: @brand-primary;
+    color: white;
+  }
+  &.btn-inverse-white {
+    color: white;
+    border: 1px solid @gray-light;
+    &:hover {
+      border-color: @brand-primary;
+      background: @brand-primary;
+      color: white;
+    }
+  }
+  &.btn-inverse-gray {
+    color: @gray-darker;
+    border: 1px solid @gray-darker;
+    &:hover {
+      border-color: @brand-primary;
+      background: @brand-primary;
+      color: white;
+    }
+  }
+}
+.btn-facebook {
+  background: @facebook;
+  color: white;
+  &:hover {
+    background: darken(@facebook, 7%);
+    color: white;
+  }
+  // #gradient > .vertical(@start-color: @facebook;
+  // @end-color: darken(@facebook, 7%);
+  // @start-percent: 0%;
+  // @end-percent: 100%);
+  // color: white;
+  // box-shadow: lighten(@facebook, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.2) 0px 1px 1px 1px;
+  // &:hover {
+  //   #gradient > .vertical(@start-color: darken(@facebook, 7%);
+  //   @end-color: darken(@facebook, 12%);
+  //   @start-percent: 0%;
+  //   @end-percent: 100%);
+  //   color: white;
+  // }
+}
+.btn-twitter {
+  background: @twitter;
+  color: white;
+  &:hover {
+    background: darken(@twitter, 20%);
+    color: white;
+  }
+  // #gradient > .vertical(@start-color: @twitter;
+  // @end-color: darken(@twitter, 25%);
+  // @start-percent: 0%;
+  // @end-percent: 100%);
+  // color: white;
+  // box-shadow: lighten(@twitter, 15%) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.2) 0px 1px 1px 1px;
+  // &:hover {
+  //   #gradient > .vertical(@start-color: darken(@twitter, 20%);
+  //   @end-color: darken(@twitter, 28%);
+  //   @start-percent: 0%;
+  //   @end-percent: 100%);
+  //   color: white;
+  // }
+}
+/* ------------------
+ * Button Modifiers (must be used with any of the above button type classes)
+ -------------------- */
+
+.btn-square {
+  border-radius: 0;
+}

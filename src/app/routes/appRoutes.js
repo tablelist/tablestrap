@@ -91,6 +91,11 @@ angular.module('tablestrapApp').config([
         url: '/dropdowns',
         templateUrl: '/app/views/dropdowns.html',
         controller: 'componentCtrl'
+      })
+      .state('schedule', {
+        url: '/schedule',
+        templateUrl: '/app/views/schedule.html',
+        controller: 'schedulePickerCtrl'
       });
   }
 ]);

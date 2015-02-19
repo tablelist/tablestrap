@@ -64,6 +64,8 @@
             <ul class="dropdown-menu">
               <li><a href="#" ui-sref="dropdowns">Dropdowns</a>
               </li>
+              <li><a href="#" ui-sref="schedule">Schedule</a>
+              </li>
               <li><a href="#input-groups">Input Groups</a>
               </li>
               <li><a href="#" ui-sref="navs">Navs</a>
@@ -102,25 +104,6 @@
   <!-- Footer -->
   <div id="footer">
     <div class="container">
-      <ul class="list-unstyled">
-        <li class="pull-right"><a href="#top">Back to top</a>
-        </li>
-        <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a>
-        </li>
-        <li><a href="http://feeds.feedburner.com/bootswatch">RSS</a>
-        </li>
-        <li><a href="https://twitter.com/bootswatch">Twitter</a>
-        </li>
-        <li><a href="https://github.com/thomaspark/bootswatch/">GitHub</a>
-        </li>
-        <li><a href="../help/#api">API</a>
-        </li>
-        <li><a href="../help/#support">Support</a>
-        </li>
-      </ul>
-      <p>Made by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
-      <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
-      <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
     </div>
   </div>
 
@@ -129,9 +112,13 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
   <script src="/angular-ui-router/release/angular-ui-router.min.js"></script>
 
+  <script src="/js/tablestrap.js"></script>
+  <script src="/js/directives/schedulePicker/schedulePicker.js"></script>
+
   <script src="/app/app.js"></script>
   <script src="/app/routes/appRoutes.js"></script>
-  <script src="/app/controllers/componentController.js"></script>
+  <script src="/app/controllers/componentCtrl.js"></script>
+  <script src="/app/controllers/schedulePickerCtrl.js"></script>
 </body>
 
 </html>

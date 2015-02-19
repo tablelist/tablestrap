@@ -1,0 +1,115 @@
+/* ------------------------------------------------------------------------
+ * Nav bar
+ * ------------------------------------------------------------------------ */
+/* --- Navbar Default --- */
+
+.navbar-default {
+  .navbar-toggle {
+    background: none;
+    color: @gray-dark;
+    border: none;
+    &:hover {
+      background: none;
+      color: @brand-primary;
+    }
+    &:active, &:focus {
+      background: none;
+      color: @brand-primary;
+    }
+  }
+  .navbar-nav {
+    > li {
+      &.active {
+        > a {
+          color: @brand-primary;
+        }
+      }
+      > a {
+        &.btn {
+          &:hover {
+            background: @brand-primary;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+/* --- Navbar Inverse --- */
+
+.navbar-inverse {
+  .navbar-toggle {
+    background: none;
+    color: white;
+    border: none;
+    &:hover {
+      background: none;
+      color: @brand-primary;
+    }
+    &:active, &:focus {
+      background: none;
+      color: @brand-primary;
+    }
+  }
+  .navbar-nav {
+    > li {
+      &.active {
+        > a {
+          color: @brand-primary;
+        }
+      }
+      > a {
+        &:hover {
+          color: @gray-light;
+        }
+        &.btn {
+          &:hover {
+            background: @brand-primary;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+.navbar-nav {
+  > li {
+    > a {
+      padding: 22px 15px 20px;
+      font-weight: @navbar-font-weight;
+      font-size: @navbar-font-size;
+      text-transform: uppercase;
+      position: relative;
+      > i {
+        position: relative;
+      }
+      &:hover {
+        .transition(color 0.3s ease-in);
+      }
+      &.btn {
+        padding: 8px 15px 8px;
+        margin-top: 12px;
+        &:hover {
+          .transition(background-color 0.3s ease-in);
+        }
+      }
+    }
+  }
+}
+.navbar-border {
+  .navbar-nav {
+    > li {
+      > .dropdown-menu {
+        margin-top: @navbar-border-size;
+      }
+      > a {}
+    }
+  }
+}
+.navbar-brand {
+  height: auto;
+  padding: 21px 15px;
+}
+.navbar-toggle {
+  padding:12px 0px 9px;
+}

@@ -6970,6 +6970,123 @@ fieldset[disabled] .btn-dark.active {
   background: #28c0b3;
   color: white;
 }
+.schedule-picker .schedule-day {
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  padding: 15px;
+  padding-right: 0;
+  position: relative;
+}
+.schedule-picker .schedule-day:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.schedule-picker .schedule-day:last-child {
+  border-bottom: 1px solid #e0e0e0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.schedule-picker .schedule-day .scheduleDay-name {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 400;
+}
+.schedule-picker .schedule-day label {
+  padding-top: 12px;
+  cursor: pointer;
+}
+.schedule-picker .schedule-day .time-picker-add {
+  position: absolute;
+  right: -35px;
+  top: 22px;
+  display: block;
+  border-radius: 50%;
+  padding: 2px 5px 0 5px;
+  border: 1px solid #e0e0e0;
+  color: #e0e0e0;
+}
+.schedule-picker .schedule-day .time-picker-disabled {
+  background: white;
+  opacity: .8;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  cursor: pointer;
+}
+.schedule-picker .schedule-day .time-picker-range {
+  float: right;
+}
+.schedule-picker .schedule-day .time-picker-range .splitter {
+  padding: 0 12px;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 40px;
+  color: #777777;
+}
+.schedule-picker .schedule-day .time-picker-range .time-picker {
+  font-size: 14px;
+  height: 44px;
+  width: 180px;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+.schedule-picker .schedule-day .time-picker-range .time-picker.error {
+  border-color: #e6100e;
+}
+.schedule-picker .schedule-day .time-picker-range .time-picker .time-select {
+  -webkit-appearance: none;
+  margin: 0;
+  height: 42px;
+  float: left;
+  width: 65%;
+  padding-left: 20px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-right: 1px solid #e0e0e0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  cursor: pointer;
+}
+.schedule-picker .schedule-day .time-picker-range .time-picker .meridian {
+  width: 35%;
+  height: 42px;
+  float: right;
+  position: relative;
+}
+.schedule-picker .schedule-day .time-picker-range .time-picker .meridian select {
+  font-size: 12px;
+  -webkit-appearance: none;
+  padding-left: 10px;
+  padding-right: 20px;
+  margin: 0;
+  height: 42px;
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.schedule-picker .schedule-day .time-picker-range .time-picker .meridian i {
+  font-size: 10px;
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 16px;
+  margin-top: -5px;
+  width: 7px;
+  height: 7px;
+}
+.schedule-picker .schedule-day .time-picker-range .time-picker-remove {
+  vertical-align: top;
+  text-align: center;
+  line-height: 40px;
+  display: inline-block;
+  width: 34px;
+  color: #e0e0e0;
+}
 /* ---- Modals ---- */
 .modal-dialog .modal-content {
   border-top-left-radius: 0;

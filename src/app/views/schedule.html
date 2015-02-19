@@ -1,0 +1,25 @@
+<div class="bs-docs-section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1>Schedule</h1>
+      </div>
+    </div>
+  </div>
+
+  <div id="schedule" class="row">
+    <button class="btn btn-default" ng-click="logValues()">Log</button>
+    <div class="col-md-6">
+      <form name="schedulePickerForm" novalidate>
+        <div class="error" ng-show="schedulePickerForm.schedule.$error.required">
+          Schedule is required
+        </div>
+        <div class="error" ng-show="schedulePickerForm.schedule.$error.invalidRange">
+          Schedule contains an invalid date range
+        </div>
+        <schedule-picker ng-model="form.schedule" name="schedule" required></schedule-picker>
+        <button ng-click="submit(schedulePickerForm)">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

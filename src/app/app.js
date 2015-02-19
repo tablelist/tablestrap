@@ -1,5 +1,6 @@
 angular.module('tablestrapApp', [
-  'ui.router'
+  'ui.router',
+  'tablestrap'
 ]);
 
 angular.module('tablestrapApp').run([
