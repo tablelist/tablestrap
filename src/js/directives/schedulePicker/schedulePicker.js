@@ -168,7 +168,8 @@ angular.module('tablestrap').directive('schedulePicker', [
 
         //deep watch the collection of schedule days to update the model - this will trigger the validate function to run
         $scope.$watch('scheduleDays', function(val) {
-          ctrl.$setViewValue(val);
+          //ctrl.$setViewValue(val);
+          ctrl.$setViewValue(angular.copy(val));  //hackyness - copy value otherwise $parsers don't run
         }, true);
 
         //parser takes the directive value and sets the model value
@@ -189,18 +190,12 @@ angular.module('tablestrap').directive('schedulePicker', [
             for (var i = 0; i < modelValue.length; i++) {
               var current = modelValue[i];
 
-              console.log('current');
-              console.log(scheduleDay);
-
               var day = current.day === 0 ? 6 : current.day - 1;
               var scheduleDay = $scope.scheduleDays[day];
 
               if (scheduleDay) {
                 scheduleDay.closed = current.closed;
               }
-
-              console.log('scheduleDay');
-              console.log(scheduleDay);
             }
           }
 
@@ -256,6 +251,9 @@ angular.module('tablestrap').directive('schedulePicker', [
                   invalidEndTime = true;
                   break;
                 }
+
+                console.log('setting formatted start and end times for day: ' + schedule.day);
+
                 hours.start = hours.startTime + ' ' + hours.startMeridian.name;
                 hours.end = hours.endTime + ' ' + hours.endMeridian.name;
 
