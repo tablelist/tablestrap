@@ -213,9 +213,12 @@ angular.module('tablestrap').directive('schedulePicker', [
                 scheduleDay.closed = modelDay.closed;
 
                 if (!scheduleDay.closed && modelDay.hours && modelDay.hours.length) {
+                  scheduleDay.hours = [];
+
                   for (j = 0; j < modelDay.hours.length; j++) {
                     var modelHour = modelDay.hours[j];
-                    var scheduleDayHours = scheduleDay.hours[j];
+                    //var scheduleDayHours = scheduleDay.hours[j];
+                    var scheduleDayHours = {};
 
                     if (!dateFormatRegex.test(modelHour.start)) throw new Error(modelHour.start + ' is not in the format 09:00 AM');
                     if (!dateFormatRegex.test(modelHour.end)) throw new Error(modelHour.end + ' is not in the format 09:00 AM');
@@ -227,6 +230,8 @@ angular.module('tablestrap').directive('schedulePicker', [
                     var endPieces = modelHour.end.split(' ');
                     scheduleDayHours.endTime = findTime($scope.times, endPieces[0]);
                     scheduleDayHours.endMeridian = endPieces[1] === 'AM' ? $scope.periods[0] : $scope.periods[1];
+
+                    scheduleDay.hours[j] = scheduleDayHours;
                   }
                 }
               }

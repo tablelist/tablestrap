@@ -31,7 +31,7 @@ var UNMINIFIED_SCRIPT = 'tablestrap.js';
 var MINIFIED_SCRIPT = 'tablestrap.min.js';
 
 //js
-var UGLIFYOPTIONS = {
+var UGLIFYOPTIONS = { 
   //http://davidwalsh.name/compress-uglify
   mangle: true,
   compress: {
