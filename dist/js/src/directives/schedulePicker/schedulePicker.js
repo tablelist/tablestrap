@@ -10,7 +10,7 @@ angular.module('tablestrap').directive('schedulePicker', [
       template: '' +
         '<div class="schedule-picker clearfix">' +
         '<div class="schedule-day clearfix" ng-repeat="scheduleDay in scheduleDays">' +
-        '<label><input type="checkbox" ng-checked="!scheduleDay.closed" ng-click="scheduleDay.select()"><span class="scheduleDay-name">{{ getDayFromNumber(scheduleDay.day) }}</span></label>' +
+        '<label><input type="checkbox" ng-checked="!scheduleDay.closed" ng-click="scheduleDay.select($event)"><span class="scheduleDay-name">{{ getDayFromNumber(scheduleDay.day) }}</span></label>' +
         '<div class="time-picker-range" ng-repeat="hoursRange in scheduleDay.hours">' +
         '<div class="time-picker start-time" ng-class="{ error: hoursRange.invalidStartTime }">' +
         '<select class="time-select" ng-model="hoursRange.startTime" ng-options="time for time in times">' +
