@@ -12,7 +12,7 @@ angular.module('tablestrap').directive('schedulePicker', [
       template: '' +
         '<div class="schedule-picker clearfix">' +
         '<div class="schedule-day clearfix" ng-repeat="scheduleDay in scheduleDays">' +
-        '<label><input type="checkbox" ng-checked="!scheduleDay.closed" ng-click="scheduleDay.select($event)"><span class="scheduleDay-name">{{ getDayFromNumber(scheduleDay.day) }}</span></label>' +
+        '<label><input type="checkbox" ng-checked="!scheduleDay.closed" ng-click="scheduleDay.select()"><span class="scheduleDay-name">{{ getDayFromNumber(scheduleDay.day) }}</span></label>' +
         '<div class="time-picker-range" ng-repeat="hoursRange in scheduleDay.hours">' +
         '<div class="time-picker start-time" ng-class="{ error: hoursRange.invalidStartTime }">' +
         '<select class="time-select" ng-model="hoursRange.startTime" ng-options="time for time in times">' +
@@ -35,7 +35,7 @@ angular.module('tablestrap').directive('schedulePicker', [
         '<i class="fa fa-chevron-down"></i>' +
         '</div>' +
         '</div>' +
-        '<a class="time-picker-remove" href="#" ng-click="scheduleDay.removeHours($index)"><i class="fa fa-times"></i></a>' +
+        '<a class="time-picker-remove" href="#" ng-click="scheduleDay.removeHours($index, $event)"><i class="fa fa-times"></i></a>' +
         '<div class="time-picker-disabled" ng-show="scheduleDay.closed" ng-click="scheduleDay.select($event)"></div>' +
         '</div>' +
         '<a class="time-picker-add" href="#" ng-click="scheduleDay.addHours($event)" ng-hide="scheduleDay.closed"><i class="fa fa-plus"></i></a>' +
@@ -75,13 +75,11 @@ angular.module('tablestrap').directive('schedulePicker', [
             startTime: null,
             startMeridian: $scope.periods[0],
             endTime: null,
-            endMeridian: $scope.periods[1],
+            endMeridian: $scope.periods[1]
           });
         };
-        ScheduleDay.prototype.select = function($event) {
+        ScheduleDay.prototype.select = function() {
           var _this = this;
-
-          if ($event) $event.preventDefault();
 
           if (_this.closed) {
             _this.closed = false;
@@ -91,8 +89,10 @@ angular.module('tablestrap').directive('schedulePicker', [
 
           _this.reset();
         };
-        ScheduleDay.prototype.removeHours = function(index) {
+        ScheduleDay.prototype.removeHours = function(index, $event) {
           var _this = this;
+
+          if ($event) $event.preventDefault();
 
           if (_this.hours.length === 1) {
             _this.closed = true;

@@ -6783,6 +6783,36 @@ h5 {
   -o-transition: all background-color 0.3s ease-in ease-out;
   transition: all background-color 0.3s ease-in ease-out;
 }
+.navbar-nav .dropdown .dropdown-menu {
+  background: #000;
+  border-color: #000;
+  padding-bottom: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.navbar-nav .dropdown .dropdown-menu li.dropdown-header {
+  font-size: 12px;
+  padding: 12px;
+}
+.navbar-nav .dropdown .dropdown-menu li.divider {
+  background: #383838;
+}
+.navbar-nav .dropdown .dropdown-menu li.footer {
+  margin-bottom: -5px;
+  border-top: 1px solid #383838;
+}
+.navbar-nav .dropdown .dropdown-menu li.footer a {
+  background: #1a1a1a;
+}
+.navbar-nav .dropdown .dropdown-menu li a {
+  color: white;
+  padding: 12px;
+  font-size: 12px;
+}
+.navbar-nav .dropdown .dropdown-menu li a:hover {
+  background: #000;
+  color: #28c0b3;
+}
 .navbar-border .navbar-nav > li > .dropdown-menu {
   margin-top: 0px;
 }
@@ -7134,12 +7164,6 @@ fieldset[disabled] .btn-dark.active {
     font-size: 12px;
     font-style: italic;
   }
-}
-.label {
-  display: inline-block;
-  padding: .8em 1.5em .8em;
-  font-size: .8em;
-  font-weight: 800;
 }
 .progress-bar {
   border-radius: 50px;

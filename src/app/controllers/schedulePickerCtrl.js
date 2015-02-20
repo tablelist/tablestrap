@@ -34,9 +34,9 @@ angular.module('tablestrapApp').controller('schedulePickerCtrl', [
       console.log($scope.form.schedule);
     };
 
-    // $scope.$watch('form.schedule', function(newVal) {
-    //   console.log(newVal);
-    // }, true);
+    $scope.$watch('form.schedule', function(newVal) {
+      console.log(newVal);
+    }, true);
 
     $scope.submit = function(form) {
       if (!form.$valid) {
