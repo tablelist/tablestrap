@@ -7307,30 +7307,6 @@ fieldset[disabled] .btn-dark.active {
   color: #e0e0e0;
 }
 /* ---- Modals ---- */
-.modal-dialog .modal-content {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  color: #111111;
-}
-.modal-dialog .modal-content .modal-header {
-  padding: 8px 25px;
-  font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
-  font-weight: 400;
-  font-style: normal;
-  background: #28c0b3;
-  color: white;
-  text-transform: uppercase;
-}
-.modal-dialog .modal-content .modal-header h4 {
-  letter-spacing: 1px;
-  font-size: 32px;
-}
-.modal-dialog .modal-content .modal-body {
-  padding: 25px;
-}
-.modal-dialog .modal-content .modal-footer {
-  padding: 25px;
-}
 /* ------------------------------------------------------------------------
  * Utilities
  * ------------------------------------------------------------------------ */

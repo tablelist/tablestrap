@@ -36,9 +36,9 @@ angular.module('tablestrap').directive('schedulePicker', [
         '</div>' +
         '</div>' +
         '<a class="time-picker-remove" href="#" ng-click="scheduleDay.removeHours($index)"><i class="fa fa-times"></i></a>' +
-        '<div class="time-picker-disabled" ng-show="scheduleDay.closed" ng-click="scheduleDay.select()"></div>' +
+        '<div class="time-picker-disabled" ng-show="scheduleDay.closed" ng-click="scheduleDay.select($event)"></div>' +
         '</div>' +
-        '<a class="time-picker-add" href="#" ng-click="scheduleDay.addHours()" ng-hide="scheduleDay.closed"><i class="fa fa-plus"></i></a>' +
+        '<a class="time-picker-add" href="#" ng-click="scheduleDay.addHours($event)" ng-hide="scheduleDay.closed"><i class="fa fa-plus"></i></a>' +
         '</div>' +
         '</div>',
       link: function($scope, $element, $attrs, ctrl) {
@@ -66,8 +66,10 @@ angular.module('tablestrap').directive('schedulePicker', [
             endMeridian: $scope.periods[1]
           }];
         }
-        ScheduleDay.prototype.addHours = function() {
+        ScheduleDay.prototype.addHours = function($event) {
           var _this = this;
+
+          $event.preventDefault();
 
           _this.hours.push({
             startTime: null,
@@ -76,8 +78,11 @@ angular.module('tablestrap').directive('schedulePicker', [
             endMeridian: $scope.periods[1],
           });
         };
-        ScheduleDay.prototype.select = function() {
+        ScheduleDay.prototype.select = function($event) {
           var _this = this;
+
+          $event.preventDefault();
+
           if (_this.closed) {
             _this.closed = false;
           } else {
