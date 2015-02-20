@@ -403,7 +403,7 @@ angular.module('tablestrap').directive('schedulePicker', [
           var foundTime;
 
           //remove leading 0
-          if (time.length === 5 && (time.substring(0, 1) === 0)) time = time.substring(1, time.length);
+          if (time.length === 5 && (time.substring(0, 1) == 0)) time = time.substring(1, time.length);
 
           for (i = 0; i < times.length; i++) {
             var currentTime = times[i];
