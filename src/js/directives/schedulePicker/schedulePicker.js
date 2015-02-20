@@ -400,6 +400,8 @@ angular.module('tablestrap').directive('schedulePicker', [
           var i;
           var foundTime;
 
+          if (time.length === 3) pad(time, 4);
+
           for (i = 0; i < times.length; i++) {
             var currentTime = times[i];
 
@@ -410,6 +412,12 @@ angular.module('tablestrap').directive('schedulePicker', [
           }
 
           return foundTime;
+        }
+
+        function pad(n, width, z) {
+          z = z || '0';
+          n = n + '';
+          return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
         }
       }
     };
