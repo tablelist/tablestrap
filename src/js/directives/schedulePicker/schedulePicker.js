@@ -13,8 +13,8 @@ angular.module('tablestrap').directive('schedulePicker', [
         '<label><input type="checkbox" ng-checked="!scheduleDay.closed" ng-click="scheduleDay.select()"><span class="scheduleDay-name">{{ getDayFromNumber(scheduleDay.day) }}</span></label>' +
         '<div class="time-picker-range" ng-repeat="hoursRange in scheduleDay.hours">' +
         '<div class="time-picker start-time" ng-class="{ error: hoursRange.invalidStartTime }">' +
-        '<select class="time-select" ng-model="hoursRange.startTime">' +
-        '<option ng-repeat="time in times" value="{{time}}">{{time}}</option>' +
+        '<select class="time-select" ng-model="hoursRange.startTime" ng-options="time for time in times">' +
+        '<option value="">Open</option>' +
         '</select>' +
         '<div class="meridian">' +
         '<select ng-model="hoursRange.startMeridian" ng-options="period as period.name for period in periods">' +
@@ -24,8 +24,8 @@ angular.module('tablestrap').directive('schedulePicker', [
         '</div>' +
         '<div class="splitter">-</div>' +
         '<div class="time-picker end-time" ng-class="{ error: hoursRange.invalidEndTime }">' +
-        '<select class="time-select" ng-model="hoursRange.endTime">' +
-        '<option ng-repeat="time in times" value="{{time}}">{{time}}</option>' +
+        '<select class="time-select" ng-model="hoursRange.endTime" ng-options="time for time in times">' +
+        '<option value="">Close</option>' +
         '</select>' +
         '<div class="meridian">' +
         '<select ng-model="hoursRange.endMeridian" ng-options="period as period.name for period in periods">' +
@@ -46,6 +46,8 @@ angular.module('tablestrap').directive('schedulePicker', [
           name: 'PM'
         }];
 
+        var dateFormatRegex = new RegExp(/^\d{1,2}:\d{2}\s{1}.[amAMpmPM]$/);
+
         $scope.times = [
           '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30',
           '4:00', '4:30', '5:00', '5:30', '6:00', '6:30', '7:00', '7:30',
@@ -64,7 +66,6 @@ angular.module('tablestrap').directive('schedulePicker', [
         }
         ScheduleDay.prototype.addHours = function() {
           var _this = this;
-          _this.closed = false;
 
           _this.hours.push({
             startTime: null,
@@ -77,10 +78,11 @@ angular.module('tablestrap').directive('schedulePicker', [
           var _this = this;
           if (_this.closed) {
             _this.closed = false;
-            _this.reset();
           } else {
             _this.closed = true;
           }
+
+          _this.reset();
         };
         ScheduleDay.prototype.removeHours = function(index) {
           var _this = this;
@@ -94,6 +96,9 @@ angular.module('tablestrap').directive('schedulePicker', [
         };
         ScheduleDay.prototype.reset = function() {
           var _this = this;
+
+          console.log('reseting, day = ' + _this.day);
+
           _this.hours = [];
           _this.addHours();
         };
@@ -166,15 +171,20 @@ angular.module('tablestrap').directive('schedulePicker', [
           }
         };
 
+
+
+        // ----------------------------------------------------------------- //
+        // NgModelCtrl
+        // ----------------------------------------------------------------- //
+
         //deep watch the collection of schedule days to update the model - this will trigger the validate function to run
         $scope.$watch('scheduleDays', function(val) {
-          //ctrl.$setViewValue(val);
-          ctrl.$setViewValue(angular.copy(val));  //hackyness - copy value otherwise $parsers don't run
+          ctrl.$setViewValue(angular.copy(val)); //hackyness - copy value otherwise $parsers don't run
         }, true);
 
         //parser takes the directive value and sets the model value
         ctrl.$parsers.unshift(function(viewValue) {
-          console.log('parsers running...');
+          //console.log('parsers running...');
 
           validate(viewValue);
 
@@ -182,19 +192,41 @@ angular.module('tablestrap').directive('schedulePicker', [
         });
 
         //formatter takes the model value and intializes the directive
+        //directive expects schedule hours to be unix timestamps
+        //TODO: provide way to parse other formats for input
         ctrl.$formatters.push(function(modelValue) {
-          console.log('formaters running...');
-          console.log(modelValue);
+          //console.log('formaters running...');
+
+          var i;
+          var j;
 
           if (modelValue && modelValue.length) {
-            for (var i = 0; i < modelValue.length; i++) {
-              var current = modelValue[i];
+            for (i = 0; i < modelValue.length; i++) {
+              var modelDay = modelValue[i];
 
-              var day = current.day === 0 ? 6 : current.day - 1;
+              var day = modelDay.day === 0 ? 6 : modelDay.day - 1;
               var scheduleDay = $scope.scheduleDays[day];
 
               if (scheduleDay) {
-                scheduleDay.closed = current.closed;
+                scheduleDay.closed = modelDay.closed;
+
+                if (!scheduleDay.closed && modelDay.hours && modelDay.hours.length) {
+                  for (j = 0; j < modelDay.hours.length; j++) {
+                    var modelHour = modelDay.hours[j];
+                    var scheduleDayHours = scheduleDay.hours[j];
+
+                    if (!dateFormatRegex.test(modelHour.start)) throw new Error(modelHour.start + ' is not in the format 09:00 AM');
+                    if (!dateFormatRegex.test(modelHour.end)) throw new Error(modelHour.end + ' is not in the format 09:00 AM');
+
+                    var startPieces = modelHour.start.split(' ');
+                    scheduleDayHours.startTime = findTime($scope.times, startPieces[0]);
+                    scheduleDayHours.startMeridian = startPieces[1] === 'AM' ? $scope.periods[0] : $scope.periods[1];
+
+                    var endPieces = modelHour.end.split(' ');
+                    scheduleDayHours.endTime = findTime($scope.times, endPieces[0]);
+                    scheduleDayHours.endMeridian = endPieces[1] === 'AM' ? $scope.periods[0] : $scope.periods[1];
+                  }
+                }
               }
             }
           }
@@ -202,7 +234,16 @@ angular.module('tablestrap').directive('schedulePicker', [
           return modelValue;
         });
 
-        //private helpers
+        // ctrl.$render = function() {
+        //   console.log('render');
+        //   console.log(ctrl.$modelValue);
+
+        //   //$scope.scheduleDays = ctrl.$modelValue;
+        // };
+
+        // ----------------------------------------------------------------- //
+        // Private Helpers
+        // ----------------------------------------------------------------- //
         function validate(viewValue) {
           var requiredAttr = $attrs.required;
 
@@ -252,7 +293,7 @@ angular.module('tablestrap').directive('schedulePicker', [
                   break;
                 }
 
-                console.log('setting formatted start and end times for day: ' + schedule.day);
+                //console.log('setting formatted start and end times for day: ' + schedule.day);
 
                 hours.start = hours.startTime + ' ' + hours.startMeridian.name;
                 hours.end = hours.endTime + ' ' + hours.endMeridian.name;
@@ -353,6 +394,22 @@ angular.module('tablestrap').directive('schedulePicker', [
           } else {
             ctrl.$setValidity('invalidEndTime', true);
           }
+        }
+
+        function findTime(times, time) {
+          var i;
+          var foundTime;
+
+          for (i = 0; i < times.length; i++) {
+            var currentTime = times[i];
+
+            if (currentTime === time) {
+              foundTime = time;
+              break;
+            }
+          }
+
+          return foundTime;
         }
       }
     };

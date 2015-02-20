@@ -49,7 +49,7 @@ var UGLIFYOPTIONS = {
  * Tasks
  * ========================================================================= */
 gulp.task('clean', function(next) {
-  return gulp.src(BUILDDIR, {
+  return gulp.src(BUILDDIR + '/**/*.*', {
       read: false
     })
     .pipe(clean());
@@ -93,12 +93,20 @@ gulp.task('less', function() {
  */
 gulp.task('js', function() {
   gulp.src('src/js/**/**/*.js')
+    .pipe(gulp.dest(BUILDDIR + '/js/src'));
+
+  gulp.src('src/js/**/**/*.js')
+    .pipe(concat(UNMINIFIED_SCRIPT))
     .pipe(gulp.dest(BUILDDIR + '/js'));
 
   return gulp.src('src/js/**/**/*.js')
     .pipe(concat(MINIFIED_SCRIPT))
     .pipe(uglify(MINIFIED_SCRIPT, UGLIFYOPTIONS))
     .pipe(gulp.dest(BUILDDIR + '/js'));
+});
+
+gulp.task('release', ['clean', 'js', 'less', 'css'], function() {
+  process.exit(0);
 });
 
 gulp.task('sampleapp-css', function() {
@@ -110,47 +118,12 @@ gulp.task('sampleapp-css', function() {
     .pipe(gulp.dest('src/app/css'));
 });
 
-gulp.task('server', ['less', 'css', 'sampleapp-css', 'js'], function() {
+gulp.task('server', ['sampleapp-css'], function() {
 
   console.log('watching less files');
 
-  //tablestrap less files
-  watch('src/**/*.less', {
-    emit: 'one',
-    emitOnGlob: false
-  }, function(files) {
-    //copy raw less files
-    gulp.src('src/**/**/*.less')
-      .pipe(rename(UNMINIFIED_LESS))
-      .pipe(gulp.dest(BUILDDIR + '/less'));
-
-    //copy to dist not minified
-    gulp.src('src/less/tablestrap.less')
-      .pipe(less({
-        compress: false
-      }))
-      .pipe(rename(UNMINIFIED_LESS))
-      .pipe(gulp.dest(BUILDDIR + '/css'));
-
-    //copy to dist minified
-    gulp.src('src/less/tablestrap.less')
-      .pipe(less({
-        compress: true
-      }))
-      .pipe(rename(MINIFIED_LESS))
-      .pipe(gulp.dest(BUILDDIR + '/css'));
-
-    //recompile the sample app
-    return gulp.src('src/app/less/app.less')
-      .pipe(less({
-        compress: false
-      }))
-      .pipe(rename('tablestrapSampleApp.css'))
-      .pipe(gulp.dest('src/app/css'));
-  });
-
   //tablestrap sample app less files
-  watch('src/app/less/app.less', {
+  watch(['src/app/less/app.less', 'src/less/**/*.less'], {
     emit: 'one',
     emitOnGlob: false
   }, function(files) {
@@ -160,20 +133,6 @@ gulp.task('server', ['less', 'css', 'sampleapp-css', 'js'], function() {
       }))
       .pipe(rename('tablestrapSampleApp.css'))
       .pipe(gulp.dest('src/app/css'));
-  });
-
-  //tablestrap js files
-  watch('src/**/*.js', {
-    emit: 'one',
-    emitOnGlob: false
-  }, function(files) {
-    gulp.src('src/js/**/**/*.js')
-      .pipe(gulp.dest(BUILDDIR + '/js'));
-
-    return gulp.src('src/js/**/**/*.js')
-      .pipe(concat(MINIFIED_SCRIPT))
-      .pipe(uglify(MINIFIED_SCRIPT, UGLIFYOPTIONS))
-      .pipe(gulp.dest(BUILDDIR + '/js'));
   });
 
   return require(__dirname + '/server');
