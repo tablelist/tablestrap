@@ -69,7 +69,7 @@ angular.module('tablestrap').directive('schedulePicker', [
         ScheduleDay.prototype.addHours = function($event) {
           var _this = this;
 
-          $event.preventDefault();
+          if ($event) $event.preventDefault();
 
           _this.hours.push({
             startTime: null,
@@ -81,7 +81,7 @@ angular.module('tablestrap').directive('schedulePicker', [
         ScheduleDay.prototype.select = function($event) {
           var _this = this;
 
-          $event.preventDefault();
+          if ($event) $event.preventDefault();
 
           if (_this.closed) {
             _this.closed = false;
