@@ -7,6 +7,7 @@ var clean = require('gulp-clean');
 var less = require('gulp-less');
 var watch = require('gulp-watch');
 var shell = require('gulp-shell');
+var sh = require('shelljs');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var htmlReplace = require('gulp-html-replace');
@@ -49,10 +50,8 @@ var UGLIFYOPTIONS = {
  * Tasks
  * ========================================================================= */
 gulp.task('clean', function(next) {
-  return gulp.src(BUILDDIR + '/**/*.*', {
-      read: false
-    })
-    .pipe(clean());
+  sh.rm('-rf', BUILDDIR);
+  next();
 });
 
 // Copy src folder to build directory

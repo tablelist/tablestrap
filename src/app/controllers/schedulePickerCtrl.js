@@ -45,7 +45,7 @@ angular.module('tablestrapApp').controller('schedulePickerCtrl', [
 
     function getTime(date) {
       var hours = date.getHours();
-      var hours = (hours + 24 - 2) % 24;
+      var hours = (hours + 24) % 24;
       var min = date.getMinutes();
 
       min = min < 10 ? pad(min, 2) : min;
