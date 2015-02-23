@@ -5,6 +5,7 @@ angular.module('tablestrap').directive('schedulePicker', [
   function($parse) {
     return {
       restrict: 'E',
+      replace: true,
       require: 'ngModel',
       scope: {
         ngModel: '='
@@ -13,6 +14,7 @@ angular.module('tablestrap').directive('schedulePicker', [
         '<div class="schedule-picker clearfix">' +
         '<div class="schedule-day clearfix" ng-repeat="scheduleDay in scheduleDays">' +
         '<label><input type="checkbox" ng-checked="!scheduleDay.closed" ng-click="scheduleDay.select()"><span class="scheduleDay-name">{{ getDayFromNumber(scheduleDay.day) }}</span></label>' +
+        '<div class="time-picker-ranges">' +
         '<div class="time-picker-range" ng-repeat="hoursRange in scheduleDay.hours">' +
         '<div class="time-picker start-time" ng-class="{ error: hoursRange.invalidStartTime }">' +
         '<select class="time-select" ng-model="hoursRange.startTime" ng-options="time for time in times">' +
@@ -37,6 +39,7 @@ angular.module('tablestrap').directive('schedulePicker', [
         '</div>' +
         '<a class="time-picker-remove" href="#" ng-click="scheduleDay.removeHours($index, $event)"><i class="fa fa-times"></i></a>' +
         '<div class="time-picker-disabled" ng-show="scheduleDay.closed" ng-click="scheduleDay.select($event)"></div>' +
+        '</div>' +
         '</div>' +
         '<a class="time-picker-add" href="#" ng-click="scheduleDay.addHours($event)" ng-hide="scheduleDay.closed"><i class="fa fa-plus"></i></a>' +
         '</div>' +

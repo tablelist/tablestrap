@@ -1,4 +1,6 @@
 .schedule-picker {
+  position: relative;
+  padding-right: 30px;
   .schedule-day {
     border-left: 1px solid @gray-lighter;
     border-right: 1px solid @gray-lighter;
@@ -34,86 +36,88 @@
       border: 1px solid @gray-lighter;
       color: @gray-lighter;
     }
-    .time-picker-range {
+    .time-picker-ranges {
       float: right;
-      position: relative;
-      .time-picker-disabled {
-        background: white;
-        opacity: .8;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-      }
-      .splitter {
-        padding: 0 12px;
-        display: inline-block;
-        vertical-align: top;
-        line-height: 40px;
-        color: @gray-light;
-      }
-      .time-picker {
-        font-size: @font-size-small;
-        height: 44px;
-        width: 140px;
-        display: inline-block;
-        border: 1px solid @gray-lighter;
-        border-radius: 4px;
-        &.error {
-          border-color: @brand-danger;
-        }
-        .time-select {
-          -webkit-appearance: none;
-          margin: 0;
-          height: 42px;
-          float: left;
-          width: 55%;
-          padding-left: 20px;
-          background: transparent;
-          border: 1px solid transparent;
-          border-right: 1px solid @gray-lighter;
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
+      .time-picker-range {
+        position: relative;
+        .time-picker-disabled {
+          background: white;
+          opacity: .8;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
           cursor: pointer;
         }
-        .meridian {
-          width: 45%;
-          height: 42px;
-          float: right;
-          position: relative;
-          select {
-            font-size: (@font-size-small - 2);
+        .splitter {
+          padding: 0 12px;
+          display: inline-block;
+          vertical-align: top;
+          line-height: 40px;
+          color: @gray-light;
+        }
+        .time-picker {
+          font-size: @font-size-small;
+          height: 44px;
+          width: 140px;
+          display: inline-block;
+          border: 1px solid @gray-lighter;
+          border-radius: 4px;
+          &.error {
+            border-color: @brand-danger;
+          }
+          .time-select {
             -webkit-appearance: none;
-            padding-left: 10px;
-            padding-right: 20px;
             margin: 0;
             height: 42px;
-            width: 100%;
+            float: left;
+            width: 55%;
+            padding-left: 20px;
             background: transparent;
             border: 1px solid transparent;
+            border-right: 1px solid @gray-lighter;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
             cursor: pointer;
           }
-          i {
-            font-size: (@font-size-small - 4);
-            position: absolute;
-            cursor: pointer;
-            top: 20px;
-            right: 16px;
-            margin-top: -5px;
-            width: 7px;
-            height: 7px;
+          .meridian {
+            width: 45%;
+            height: 42px;
+            float: right;
+            position: relative;
+            select {
+              font-size: (@font-size-small - 2);
+              -webkit-appearance: none;
+              padding-left: 10px;
+              padding-right: 20px;
+              margin: 0;
+              height: 42px;
+              width: 100%;
+              background: transparent;
+              border: 1px solid transparent;
+              cursor: pointer;
+            }
+            i {
+              font-size: (@font-size-small - 4);
+              position: absolute;
+              cursor: pointer;
+              top: 20px;
+              right: 16px;
+              margin-top: -5px;
+              width: 7px;
+              height: 7px;
+            }
           }
         }
-      }
-      .time-picker-remove {
-        vertical-align: top;
-        text-align: center;
-        line-height: 40px;
-        display: inline-block;
-        width: 34px;
-        color: @gray-lighter;
+        .time-picker-remove {
+          vertical-align: top;
+          text-align: center;
+          line-height: 40px;
+          display: inline-block;
+          width: 34px;
+          color: @gray-lighter;
+        }
       }
     }
   }
