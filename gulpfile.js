@@ -147,42 +147,6 @@ function _init(stream) {
   return stream;
 }
 
-// function _replace(stream) {
-//   _init(stream);
-//   for (key in appConfig) {
-//     stream.pipe(replace('@@' + key, appConfig[key], {
-//       skipBinary: true
-//     }));
-//   }
-
-//   _htmlReplace(stream);
-
-//   return stream;
-// }
-
-// function _htmlReplace(stream) {
-
-//   if (ENV === 'production') {
-//     stream.pipe(gulpIf(_isHtmlFile, htmlReplace({
-//       devscripts: '<script src="/app/' + MINIFIEDSCRIPT + '"></script>'
-//     })));
-//   }
-
-//   return stream;
-// }
-
-// function _isJsFile(file) {
-//   return _endsWith(file.path, '.js');
-// }
-
-// function _isHtmlFile(file) {
-//   return _endsWith(file.path, '.html');
-// }
-
-// function _endsWith(s, suffix) {
-//   return s.indexOf(suffix, s.length - suffix.length) !== -1;
-// }
-
 function setupEnv(env) {
   // allow passing name as an argument
   if (env && env.indexOf('-') === 0) env = env.substring(1);

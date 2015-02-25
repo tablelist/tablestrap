@@ -64,7 +64,7 @@ angular.module('tablestrap').directive('schedulePicker', [
           this.closed = true;
           this.hours = [{
             startTime: null,
-            startMeridian: $scope.periods[0],
+            startMeridian: $scope.periods[1],
             endTime: null,
             endMeridian: $scope.periods[1]
           }];
@@ -76,7 +76,7 @@ angular.module('tablestrap').directive('schedulePicker', [
 
           _this.hours.push({
             startTime: null,
-            startMeridian: $scope.periods[0],
+            startMeridian: $scope.periods[1],
             endTime: null,
             endMeridian: $scope.periods[1]
           });
