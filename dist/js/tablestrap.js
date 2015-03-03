@@ -308,8 +308,6 @@ angular.module('tablestrap').directive('schedulePicker', [
                   break;
                 }
 
-                //console.log('setting formatted start and end times for day: ' + schedule.day);
-
                 hours.start = hours.startTime + ' ' + hours.startMeridian.name;
                 hours.end = hours.endTime + ' ' + hours.endMeridian.name;
 

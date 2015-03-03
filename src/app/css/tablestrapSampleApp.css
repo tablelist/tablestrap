@@ -6753,7 +6753,7 @@ h5 {
 }
 .navbar-nav > li > a {
   padding: 22px 15px 20px;
-  font-weight: 1000;
+  font-weight: 400;
   font-size: 12px;
   text-transform: uppercase;
   position: relative;
@@ -6862,7 +6862,7 @@ h5 {
   font-size: 26px;
 }
 .btn-bold {
-  font-weight: 800;
+  font-weight: 400;
   text-transform: uppercase;
 }
 /* ------------------
