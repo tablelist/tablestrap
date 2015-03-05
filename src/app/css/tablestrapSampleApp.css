@@ -6727,6 +6727,9 @@ h5 {
   color: white;
 }
 /* --- Navbar Inverse --- */
+.navbar-inverse {
+  border-bottom: 1px solid #333333;
+}
 .navbar-inverse .navbar-toggle {
   background: none;
   color: white;
