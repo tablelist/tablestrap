@@ -7092,6 +7092,9 @@ fieldset[disabled] .btn-dark.active {
 .btn-square {
   border-radius: 0;
 }
+.btn-round {
+  border-radius: 24px;
+}
 /* ------------------------------------------------------------------------
  * Blocks - TODO rename to something better, this is too generic
  * ------------------------------------------------------------------------ */
@@ -7175,6 +7178,31 @@ fieldset[disabled] .btn-dark.active {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+.dropdown.open.dropdown-round .btn {
+  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+.dropdown.drodown-default .dropdown-menu {
+  border-color: #777777;
+}
+.dropdown.drodown-primary .dropdown-menu {
+  border-color: #28c0b3;
+}
+.dropdown.drodown-primary .dropdown-menu li a:hover {
+  background: #28c0b3;
+  color: white;
+}
+.dropdown.dropdown-round .dropdown-menu {
+  margin-top: 2px;
+  border-top-color: #e0e0e0;
+  border-radius: 4px;
+}
+.dropdown.dropdown-round.dropdown-round-inverse .btn {
+  border: none;
+}
+.dropdown.dropdown-round.dropdown-round-inverse .btn:active {
+  box-shadow: none;
+}
 .dropdown .btn {
   text-align: left;
   padding-left: 14px;
@@ -7191,29 +7219,17 @@ fieldset[disabled] .btn-dark.active {
   background: white;
   color: #28c0b3;
 }
-.dropdown .btn i {
-  font-size: 14px;
-  float: right;
-  display: inline-block;
-  padding-left: 10px;
-  padding-top: 3px;
-}
 .dropdown .dropdown-menu {
   margin-top: 0px;
   margin-left: 0px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-  box-shadow: none;
-  border-color: #28c0b3;
   border-top-color: white;
   padding: 0;
+  box-shadow: 0 0 10px #e5e5e5;
 }
 .dropdown .dropdown-menu li a {
   padding: 14px 20px;
-}
-.dropdown .dropdown-menu li a:hover {
-  background: #28c0b3;
-  color: white;
 }
 .schedule-picker {
   position: relative;

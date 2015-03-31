@@ -12,3 +12,30 @@
 .flip {
   transform: scale(-1, 1);
 }
+
+.gradient-vertical (@startColor: #eee, @startPercent: 0%, @endColor: white, @endPercent: 100%) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor, @startPercent), to(@endColor, @endPercent));
+  background: -webkit-linear-gradient(top, @startColor @startPercent, @endColor @endPercent);
+  background: -o-linear-gradient(top, @startColor @startPercent, @endColor @endPercent);
+  background: -ms-linear-gradient(top, @startColor @startPercent, @endColor @endPercent);
+  background: linear-gradient(top, @startColor @startPercent, @endColor @endPercent);
+}
+.gradient-horizontal-left-right (@startColor: #eee, @startPercent: 0%, @endColor: white, @endPercent: 100%) {
+  background-color: @startColor;
+  background: -moz-linear-gradient(left, @startColor @startPercent, @endColor @endPercent);
+  background: -webkit-gradient(linear, left top, right top, color-stop(@startPercent, @startColor), color-stop(@endPercent, @endColor));
+  background: -webkit-linear-gradient(left, @startColor @startPercent, @endColor @endPercent);
+  background: -o-linear-gradient(left, @startColor @startPercent, @endColor @endPercent);
+  background: -ms-linear-gradient(left, @startColor @startPercent, @endColor @endPercent);
+  background: linear-gradient(to right, @startColor @startPercent, @endColor @endPercent);
+}
+.gradient-horizontal-right-left (@startColor: #eee, @startPercent: 0%, @endColor: white, @endPercent: 100%) {
+  background-color: @startColor;
+  background: -moz-linear-gradient(right, @startColor @startPercent, @endColor @endPercent);
+  background: -webkit-gradient(linear, right top, left top, color-stop(@startPercent, @startColor), color-stop(@endPercent, @endColor));
+  background: -webkit-linear-gradient(right, @startColor @startPercent, @endColor @endPercent);
+  background: -o-linear-gradient(right, @startColor @startPercent, @endColor @endPercent);
+  background: -ms-linear-gradient(right, @startColor @startPercent, @endColor @endPercent);
+  background: linear-gradient(to left, @startColor @startPercent, @endColor @endPercent);
+}

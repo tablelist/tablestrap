@@ -22,16 +22,20 @@
 .btn-xs {
   padding: 5px 10px;
 }
+
 .btn-sm {
   padding: 10px 15px
 }
+
 .btn-xlg {
   padding: 16px 32px;
 }
+
 .btn-xxlg {
   padding: 22px 32px;
   font-size: @font-size-xlarge;
 }
+
 .btn-bold {
   font-weight: @font-weight-med;
   text-transform: uppercase;
@@ -43,12 +47,13 @@
 .btn-default {
   .table-button(@tl-black, white, darken(white, 30%));
   &.btn-default-green {
-  .table-button(@brand-primary, white, @brand-primary);
-  &.disabled {
-    color:darken(@brand-primary, 5%);
-  }
+    .table-button(@brand-primary, white, @brand-primary);
+    &.disabled {
+      color: darken(@brand-primary, 5%);
+    }
   }
 }
+
 .btn-dark {
   .button-variant(white;
   @brand-dark;
@@ -66,6 +71,7 @@
     // @end-percent: 100%);
   }
 }
+
 .btn-primary {
   // #gradient > .vertical(@start-color: @brand-primary;
   // @end-color: darken(@brand-primary, 8%);
@@ -79,6 +85,7 @@
     // @end-percent: 100%);
   }
 }
+
 .btn-info {
   .table-button(white, darken(@brand-info, 10%), darken(@brand-info, 25%));
   // #gradient > .vertical(@start-color: @brand-info;
@@ -86,6 +93,7 @@
   // @start-percent: 0%;
   // @end-percent: 100%);
 }
+
 .btn-warning {
   .table-button(white, @brand-warning, darken(@brand-warning, 25%));
   // #gradient > .vertical(@start-color: @brand-warning;
@@ -93,6 +101,7 @@
   // @start-percent: 0%;
   // @end-percent: 100%);
 }
+
 .btn-danger {
   .table-button(white, @brand-danger, darken(@brand-danger, 25%));
   // #gradient > .vertical(@start-color: @brand-danger;
@@ -100,6 +109,7 @@
   // @start-percent: 0%;
   // @end-percent: 100%);
 }
+
 .btn-success {
   .table-button(white, @brand-success, darken(@brand-success, 25%));
   // #gradient > .vertical(@start-color: @brand-success;
@@ -107,6 +117,7 @@
   // @start-percent: 0%;
   // @end-percent: 100%);
 }
+
 .btn-inverse {
   background: none;
   border: 1px solid @brand-primary;
@@ -133,6 +144,7 @@
     }
   }
 }
+
 .btn-facebook {
   background: @facebook;
   color: white;
@@ -154,6 +166,7 @@
   //   color: white;
   // }
 }
+
 .btn-twitter {
   background: @twitter;
   color: white;
@@ -181,4 +194,8 @@
 
 .btn-square {
   border-radius: 0;
+}
+
+.btn-round {
+  border-radius: 24px;
 }
