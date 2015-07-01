@@ -1,6 +1,14 @@
 /* ------------------------------------------------------------------------
  * Nav bar
  * ------------------------------------------------------------------------ */
+
+/* --- Navbar Base --- */
+
+.navbar {
+  margin-bottom: 0;
+  height: @navbar-height;
+}
+
 /* --- Navbar Default --- */
 
 .navbar-default {
@@ -12,7 +20,8 @@
       background: none;
       color: @brand-primary;
     }
-    &:active, &:focus {
+    &:active,
+    &:focus {
       background: none;
       color: @brand-primary;
     }
@@ -38,7 +47,7 @@
 /* --- Navbar Inverse --- */
 
 .navbar-inverse {
-  border-bottom: 1px solid @gray-dark;
+  border-bottom: 1px solid black;
   .navbar-toggle {
     background: none;
     color: white;
@@ -47,12 +56,19 @@
       background: none;
       color: @brand-primary;
     }
-    &:active, &:focus {
+    &:active,
+    &:focus {
       background: none;
       color: @brand-primary;
     }
   }
   .navbar-nav {
+    height: (@navbar-height - 2);
+    li {
+      a {
+        height: (@navbar-height - 2);
+      }
+    }
     > li {
       &.active {
         > a {
@@ -73,6 +89,7 @@
     }
   }
 }
+
 .navbar-nav {
   > li {
     > a {
@@ -123,6 +140,7 @@
           color: white;
           padding: 12px;
           font-size: (@font-size-small - 2);
+          height: auto;
           &:hover {
             background: #000;
             color: @brand-primary;
@@ -132,6 +150,7 @@
     }
   }
 }
+
 .navbar-border {
   .navbar-nav {
     > li {
@@ -142,10 +161,25 @@
     }
   }
 }
+
 .navbar-brand {
-  height: auto;
+  height: (@navbar-height - 2);
   padding: 21px 15px;
+  img {
+    height: 15px;
+    margin-top: 3px;
+  }
 }
+
+@media(max-width: @screen-sm) {
+  .navbar-brand {
+    padding-right: 0;
+    img {
+      height: 17px;
+    }
+  }
+}
+
 .navbar-toggle {
   padding: 12px 0px 9px;
 }

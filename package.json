@@ -1,6 +1,6 @@
 {
   "name": "tablestrap",
-  "version": "0.0.0",
+  "version": "0.2.9",
   "description": "HTML and CSS framework based off of Bootstrap",
   "main": "src/server.js",
   "scripts": {

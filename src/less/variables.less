@@ -15,15 +15,15 @@
 @gray-darker:             @tl-gray; // #222
 @gray-dark:               lighten(#000, 20%);   // #333
 @gray:                    lighten(#000, 33.5%); // #555
-@gray-light:              lighten(#000, 46.7%); // #777
+@gray-light:              #9a9a9a;
 @gray-lighter:            lighten(#000, 88%); // #eee
 
-@gray-bg: 				  #212121;
-@body-bg:				  white;
-@text-color:			  @gray-dark;
+@gray-bg: 				  			#212121;
+@body-bg: 								@gray-darker;
+@text-color: 							white;
 
 @brand-primary:        	  @tl-green;
-@brand-dark: #444444;
+@brand-dark: 							#444444;
 @brand-success:           #5cb85c;
 @brand-info:              #5bc0de;
 @brand-warning:           #f0ad4e;
@@ -65,6 +65,7 @@
 @border-radius-base: 2px;
 
 /* ------------ Navbar ------------ */
+@navbar-height: 68px;
 @navbar-border-size: 0px;
 @navbar-border-color: @tl-black;
 @navbar-font-weight: @font-weight-med;
