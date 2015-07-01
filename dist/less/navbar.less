@@ -1,14 +1,12 @@
 /* ------------------------------------------------------------------------
  * Nav bar
  * ------------------------------------------------------------------------ */
-
 /* --- Navbar Base --- */
 
 .navbar {
   margin-bottom: 0;
   height: @navbar-height;
 }
-
 /* --- Navbar Default --- */
 
 .navbar-default {
@@ -64,29 +62,41 @@
   }
   .navbar-nav {
     height: (@navbar-height - 2);
+    > .open {
+      > a {
+        background-color: transparent;
+        &:focus {
+          background-color: transparent;
+        }
+      }
+    }
     li {
       a {
         height: (@navbar-height - 2);
-      }
-    }
-    > li {
-      &.active {
-        > a {
-          color: @brand-primary;
-        }
-      }
-      > a {
-        &:hover {
-          color: @gray-light;
-        }
-        &.btn {
-          &:hover {
-            background: @brand-primary;
-            color: white;
-          }
+        background-color: transparent;
+        &:focus {
+          background-color: transparent;
         }
       }
     }
+    // > li {
+    //   &.active {
+    //     > a {
+    //       color: @brand-primary;
+    //     }
+    //   }
+    //   > a {
+    //     &:hover {
+    //       color: @gray-light;
+    //     }
+    //     &.btn {
+    //       &:hover {
+    //         background: @brand-primary;
+    //         color: white;
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
 
