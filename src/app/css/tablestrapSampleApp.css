@@ -6765,6 +6765,9 @@ h5 {
 .navbar-inverse .navbar-nav li a:focus {
   background-color: transparent;
 }
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #9a9a9a;
+}
 .navbar-nav > li > a {
   padding: 22px 15px 20px;
   font-weight: 400;
