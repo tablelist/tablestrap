@@ -1,9 +1,16 @@
 tablestrap
 ==========
 
-Tablelist HTML, CSS, JS Framework
+Tablelist HTML, CSS, & JS Framework.
 
-To Build the CSS:
+
+Install dependencies:
+
+```sh
+npm install less
+```
+
+Build the css:
 
 ```sh
 make
