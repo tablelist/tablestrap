@@ -3,8 +3,8 @@
   "version": "0.2.8",
   "homepage": "https://github.com/tablelist/tablestrap",
   "authors": [
-    "Tim Officer <timothyofficer@gmail.com>",
-    "Edwin Zhang <ehzhang@mit.edu>"
+    "Tim Officer <tim@tablelist.com>",
+    "Alex Johnson <alex@tablelist.com>"
   ],
   "description": "Tablelist CSS Framework, derived from Bootstrap",
   "main": "src/main.less",
